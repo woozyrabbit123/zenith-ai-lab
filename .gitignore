@@ -1,0 +1,41 @@
+# Local credentials and configuration (review every diff before publishing)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.token
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# JavaScript / TypeScript
+node_modules/
+.next/
+coverage/
+
+# General build output and local clutter
+dist/
+build/
+tmp/
+.cache/
+*.log
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# IDE machine-local settings
+.idea/
+.vscode/
