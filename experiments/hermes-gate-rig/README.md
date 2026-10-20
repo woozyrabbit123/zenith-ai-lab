@@ -20,6 +20,7 @@ python3 setup.py && .runtime/venv/bin/python -m unittest test_rig -v && .runtime
 
 Setup refuses the wrong lab origin, fetches the exact upstream commit, installs
 Python 3.14.8 and uses upstream's locked dependencies with no optional/dev groups.
+The interpreter install uses `--no-bin` so uv creates no user-level launcher.
 Everything installed or generated is under ignored `.runtime/` in this experiment.
 No global packages, shell configuration or operator hooks are installed. An
 initial Python/uv installation is a prerequisite, not silently performed.

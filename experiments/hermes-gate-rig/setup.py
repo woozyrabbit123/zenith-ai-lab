@@ -36,7 +36,7 @@ def main():
         raise SystemExit('Upstream revision mismatch')
     if run('git', '-C', str(upstream), 'status', '--porcelain', '--untracked-files=no'):
         raise SystemExit('Tracked upstream modifications refused')
-    subprocess.run(['uv', 'python', 'install', '3.14.8'], env=env, check=True)
+    subprocess.run(['uv', 'python', 'install', '--no-bin', '3.14.8'], env=env, check=True)
     python = run('uv', 'python', 'find', '3.14.8', env=env)
     subprocess.run(['uv', 'sync', '--project', str(upstream), '--python', python,
                     '--locked', '--no-dev', '--no-default-groups'], env=env, check=True)
