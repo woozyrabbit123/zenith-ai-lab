@@ -1,0 +1,19 @@
+{
+  "state": "INACTIVE_EXPERIMENT_PARTIAL_UNSAFE",
+  "install_allowed": false,
+  "auto_activate": false,
+  "tested_upstream_sha": "8f817911723e3ec13e7f47fc022fdcc9e2149354",
+  "tested_python": "3.14.8",
+  "capabilities": ["scripted real-agent-loop integration fixtures", "experimental terminal veto and prefix tripwire"],
+  "requires_before_any_adoption": [
+    "Separate explicit owner approval for one host and exact source revision",
+    "Independent review of candidate and verifier revisions",
+    "Verify actual installed Hermes version and local tool/configuration compatibility",
+    "Verify consent, registration, invocation and effects in the real caller path",
+    "Scope expected repository, revision and effects; this experiment only checks origin metadata",
+    "Review known escapes; do not rely on this tripwire as a security boundary"
+  ],
+  "not_tested": ["gateway", "Telegram", "Desktop", "ACP", "kanban", "live model judgement", "delegated child calls", "operator machines"],
+  "rollback": "No operator installation exists. Remove the experiment directory to remove its local sandbox, or revert the unmerged branch. A future separately reviewed installation must supply its own config rollback.",
+  "installer": null
+}
