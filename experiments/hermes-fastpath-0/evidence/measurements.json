@@ -1,0 +1,1968 @@
+{
+  "tested_implementation_commit": "02ae67c88d0b3292029ed6ae2365196ad9ce3c68",
+  "upstream": "8f817911723e3ec13e7f47fc022fdcc9e2149354",
+  "contract_sha256": "d1905319d7b20814ca0c1d0fb25e3592a9bdec829483ac01e46179a7dcc92fa5",
+  "source_sha256": {
+    "test_fastpath.py": "f876373c2a9c9c8d4d31d45402305e18d07d22d613b80edc14b997dc8110cb40",
+    "setup.py": "36c43517b00dd90081df4baae792d0a7fb1ea32693dfed07df532d016fe7c56d",
+    "observe.py": "7d0468f23b3b582eea431942dab5abfb5fe2cffb2c477c1e7e42dce870c0e9cf",
+    "recipe.py": "402b94381451f517a4b6f1b2f9e3f1a17eeeb365e917bc2148f2a8aba52e382f",
+    "stub.py": "59f45320026fa8fee30b62d9a7183edda650591659254020a1b6248142b8aed6",
+    "run.py": "5e7d6d91bf193e8235c0da4e1406bd8d912d4599b335915c7e184ae6615a21a7",
+    "fastpath.py": "2701f8bfb518eea8ea13168a7fc293b13fda196d3742a704253774b8c538b9cd",
+    "worker.py": "f1137f61aab58c869861925a7a03e40bf45cdac2cc42dc9c7ea673cfdd8178bc",
+    "contract.json": "d1905319d7b20814ca0c1d0fb25e3592a9bdec829483ac01e46179a7dcc92fa5"
+  },
+  "cases": [
+    {
+      "case": "success",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "verified",
+        "model_responses": 4,
+        "total_dispatches": 3,
+        "terminal_dispatches": 3,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 508,
+        "model_request_bytes": 65557,
+        "cumulative_tool_content_bytes": 1014,
+        "seconds": 6.98,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "d1e3b4cbeb059ba0fb8af0578810e5f961e47635728f50830777c5f3d0f3326e",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"c082274a6ca2e751f8309ed9530a5ef32f6875f8fc20b038e30e1a8d754e6da8\",\n  \"state\": \"verified\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15360,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16066,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 187,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16712,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 319,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17419,
+            "tool_results_seen": 3,
+            "tool_content_bytes": 508,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          }
+        ]
+      },
+      "fastpath": {
+        "status": "verified",
+        "model_responses": 2,
+        "total_dispatches": 4,
+        "terminal_dispatches": 3,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 710,
+        "model_request_bytes": 33266,
+        "cumulative_tool_content_bytes": 710,
+        "seconds": 8.1,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "d1e3b4cbeb059ba0fb8af0578810e5f961e47635728f50830777c5f3d0f3326e",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"c082274a6ca2e751f8309ed9530a5ef32f6875f8fc20b038e30e1a8d754e6da8\",\n  \"state\": \"verified\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15360,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17906,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 710,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          }
+        ]
+      }
+    },
+    {
+      "case": "wrong_cwd",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "refused",
+        "model_responses": 2,
+        "total_dispatches": 1,
+        "terminal_dispatches": 1,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 172,
+        "model_request_bytes": 31809,
+        "cumulative_tool_content_bytes": 172,
+        "seconds": 7.198,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15558,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16251,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 172,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "working directory does not match approved root",
+              "ok": false,
+              "status": "refused",
+              "step": "inspect"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      },
+      "fastpath": {
+        "status": "refused",
+        "model_responses": 2,
+        "total_dispatches": 2,
+        "terminal_dispatches": 1,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 603,
+        "model_request_bytes": 33569,
+        "cumulative_tool_content_bytes": 603,
+        "seconds": 7.543,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15558,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 18011,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 603,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "working directory does not match approved root",
+              "ok": false,
+              "status": "refused",
+              "step": "inspect"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      }
+    },
+    {
+      "case": "wrong_repo",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "refused",
+        "model_responses": 2,
+        "total_dispatches": 1,
+        "terminal_dispatches": 1,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 165,
+        "model_request_bytes": 31437,
+        "cumulative_tool_content_bytes": 165,
+        "seconds": 7.181,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15375,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16062,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 165,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "repository origin mismatch or ambiguity",
+              "ok": false,
+              "status": "refused",
+              "step": "inspect"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      },
+      "fastpath": {
+        "status": "refused",
+        "model_responses": 2,
+        "total_dispatches": 2,
+        "terminal_dispatches": 1,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 596,
+        "model_request_bytes": 33199,
+        "cumulative_tool_content_bytes": 596,
+        "seconds": 7.916,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15375,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17824,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 596,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "repository origin mismatch or ambiguity",
+              "ok": false,
+              "status": "refused",
+              "step": "inspect"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      }
+    },
+    {
+      "case": "precondition",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "refused",
+        "model_responses": 2,
+        "total_dispatches": 1,
+        "terminal_dispatches": 1,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 178,
+        "model_request_bytes": 31496,
+        "cumulative_tool_content_bytes": 178,
+        "seconds": 7.135,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "7703a3454107f737d16c423bc4e8172fc376e17677e6b32a0aab4f4e4ee9e592",
+            "bytes": 76,
+            "content": "{\n  \"mode\": \"locked\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15397,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16099,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 178,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "unexpected starting bytes or unowned completed state",
+              "ok": false,
+              "status": "refused",
+              "step": "inspect"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      },
+      "fastpath": {
+        "status": "refused",
+        "model_responses": 2,
+        "total_dispatches": 2,
+        "terminal_dispatches": 1,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 609,
+        "model_request_bytes": 33262,
+        "cumulative_tool_content_bytes": 609,
+        "seconds": 8.364,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "7703a3454107f737d16c423bc4e8172fc376e17677e6b32a0aab4f4e4ee9e592",
+            "bytes": 76,
+            "content": "{\n  \"mode\": \"locked\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15397,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17865,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 609,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "unexpected starting bytes or unowned completed state",
+              "ok": false,
+              "status": "refused",
+              "step": "inspect"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      }
+    },
+    {
+      "case": "update_failure",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "update_failed",
+        "model_responses": 3,
+        "total_dispatches": 2,
+        "terminal_dispatches": 2,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 675,
+        "model_request_bytes": 48636,
+        "cumulative_tool_content_bytes": 862,
+        "seconds": 7.209,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "85d9b66e1a0f8a6f627294404df8a90b99cef7aaad94baf0e8f2fbedef57ccb5",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"63b54bf6f5bd2b50befc529639ca88f7c7faf37b7bbe6663cf224d9307ed06c3\",\n  \"state\": \"prepared\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15395,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16108,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 187,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17133,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 675,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "[Errno 13] Permission denied: '$FIXTURE/repo/.operation-sm9kdct7'",
+              "error_type": "PermissionError",
+              "ok": false,
+              "status": "update_failed",
+              "step": "update"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      },
+      "fastpath": {
+        "status": "update_failed",
+        "model_responses": 2,
+        "total_dispatches": 3,
+        "terminal_dispatches": 2,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 1074,
+        "model_request_bytes": 33781,
+        "cumulative_tool_content_bytes": 1074,
+        "seconds": 7.621,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "85d9b66e1a0f8a6f627294404df8a90b99cef7aaad94baf0e8f2fbedef57ccb5",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"63b54bf6f5bd2b50befc529639ca88f7c7faf37b7bbe6663cf224d9307ed06c3\",\n  \"state\": \"prepared\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15395,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 18386,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 1074,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "[Errno 13] Permission denied: '$FIXTURE/repo/.operation-6kr9zlku'",
+              "error_type": "PermissionError",
+              "ok": false,
+              "status": "update_failed",
+              "step": "update"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      }
+    },
+    {
+      "case": "verify_tamper",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "verify_failed",
+        "model_responses": 4,
+        "total_dispatches": 3,
+        "terminal_dispatches": 3,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 615,
+        "model_request_bytes": 65828,
+        "cumulative_tool_content_bytes": 1121,
+        "seconds": 7.281,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "768febf5d57b2b64416eb99f33d9ba092236b3c742e31b739af2e64a504ad3c0",
+            "bytes": 77,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 999,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "e65e90b2332a936050c20b69d287f35e3fb690f5cc0e9f70b98886bafa98a8bf",
+            "bytes": 324,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"a05d6f83583607c298c62aa15b1c8cb3680b05ca4bde6b1948c01b0266ac434d\",\n  \"state\": \"applied\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15390,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16102,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 187,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16754,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 319,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17582,
+            "tool_results_seen": 3,
+            "tool_content_bytes": 615,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [
+          "verify_tamper"
+        ],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "expected_sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "observed_sha256": "768febf5d57b2b64416eb99f33d9ba092236b3c742e31b739af2e64a504ad3c0",
+              "ok": false,
+              "status": "verify_failed",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          },
+          {
+            "directory": ".",
+            "mask": 2,
+            "name": "settings.json"
+          }
+        ]
+      },
+      "fastpath": {
+        "status": "verify_failed",
+        "model_responses": 2,
+        "total_dispatches": 4,
+        "terminal_dispatches": 3,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 967,
+        "model_request_bytes": 33677,
+        "cumulative_tool_content_bytes": 967,
+        "seconds": 7.072,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "768febf5d57b2b64416eb99f33d9ba092236b3c742e31b739af2e64a504ad3c0",
+            "bytes": 77,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 999,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "e65e90b2332a936050c20b69d287f35e3fb690f5cc0e9f70b98886bafa98a8bf",
+            "bytes": 324,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"a05d6f83583607c298c62aa15b1c8cb3680b05ca4bde6b1948c01b0266ac434d\",\n  \"state\": \"applied\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15390,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 18287,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 967,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [
+          "verify_tamper"
+        ],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "expected_sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "observed_sha256": "768febf5d57b2b64416eb99f33d9ba092236b3c742e31b739af2e64a504ad3c0",
+              "ok": false,
+              "status": "verify_failed",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          },
+          {
+            "directory": ".",
+            "mask": 2,
+            "name": "settings.json"
+          }
+        ]
+      }
+    },
+    {
+      "case": "verify_missing",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "verify_failed",
+        "model_responses": 4,
+        "total_dispatches": 3,
+        "terminal_dispatches": 3,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 638,
+        "model_request_bytes": 65877,
+        "cumulative_tool_content_bytes": 1144,
+        "seconds": 7.243,
+        "filesystem": {
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "81dc1daf1713466e681183ce38f0860cb39bb30aceafdab1ce5c45fd2033c61a",
+            "bytes": 324,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"1c4afb39d45dcbf45b6a90bf48e706210533326a2866855f9cafc78250125e89\",\n  \"state\": \"applied\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15395,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16108,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 187,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16761,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 319,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17613,
+            "tool_results_seen": 3,
+            "tool_content_bytes": 638,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [
+          "verify_missing"
+        ],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "[Errno 2] No such file or directory: '$FIXTURE/repo/settings.json'",
+              "error_type": "FileNotFoundError",
+              "ok": false,
+              "status": "verify_failed",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          },
+          {
+            "directory": ".",
+            "mask": 512,
+            "name": "settings.json"
+          }
+        ]
+      },
+      "fastpath": {
+        "status": "verify_failed",
+        "model_responses": 2,
+        "total_dispatches": 4,
+        "terminal_dispatches": 3,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 990,
+        "model_request_bytes": 33713,
+        "cumulative_tool_content_bytes": 990,
+        "seconds": 6.756,
+        "filesystem": {
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "81dc1daf1713466e681183ce38f0860cb39bb30aceafdab1ce5c45fd2033c61a",
+            "bytes": 324,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"1c4afb39d45dcbf45b6a90bf48e706210533326a2866855f9cafc78250125e89\",\n  \"state\": \"applied\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15395,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 18318,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 990,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [
+          "verify_missing"
+        ],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 20,
+            "error": null,
+            "result": {
+              "error": "[Errno 2] No such file or directory: '$FIXTURE/repo/settings.json'",
+              "error_type": "FileNotFoundError",
+              "ok": false,
+              "status": "verify_failed",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          },
+          {
+            "directory": ".",
+            "mask": 512,
+            "name": "settings.json"
+          }
+        ]
+      }
+    },
+    {
+      "case": "repeat",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "verified",
+        "model_responses": 7,
+        "total_dispatches": 6,
+        "terminal_dispatches": 6,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 1039,
+        "model_request_bytes": 121935,
+        "cumulative_tool_content_bytes": 3612,
+        "seconds": 7.012,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "c655d242ad84701c2f96e0d7c4f679cb290a3db88bf588d3824f14a088ef6df3",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"77c8bffc9df23364f4ad5906401092f94e3bb5a202ac6ff4a3f8bc75b94e423d\",\n  \"state\": \"verified\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15355,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16060,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 187,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16705,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 319,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17411,
+            "tool_results_seen": 3,
+            "tool_content_bytes": 508,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 18130,
+            "tool_results_seen": 4,
+            "tool_content_bytes": 709,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 18784,
+            "tool_results_seen": 5,
+            "tool_content_bytes": 850,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 19490,
+            "tool_results_seen": 6,
+            "tool_content_bytes": 1039,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          },
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "reconcile_or_repeat",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "already_applied",
+              "step": "update",
+              "wrote_settings": false
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          }
+        ]
+      },
+      "fastpath": {
+        "status": "verified",
+        "model_responses": 3,
+        "total_dispatches": 8,
+        "terminal_dispatches": 6,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 1442,
+        "model_request_bytes": 53716,
+        "cumulative_tool_content_bytes": 2152,
+        "seconds": 7.51,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "c655d242ad84701c2f96e0d7c4f679cb290a3db88bf588d3824f14a088ef6df3",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"77c8bffc9df23364f4ad5906401092f94e3bb5a202ac6ff4a3f8bc75b94e423d\",\n  \"state\": \"verified\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15355,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17898,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 710,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 20463,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 1442,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          },
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "applied",
+              "step": "update",
+              "wrote_settings": true
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          },
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "reconcile_or_repeat",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "already_applied",
+              "step": "update",
+              "wrote_settings": false
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          }
+        ]
+      }
+    },
+    {
+      "case": "disconnect",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "verified",
+        "model_responses": 5,
+        "total_dispatches": 4,
+        "terminal_dispatches": 4,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 563,
+        "model_request_bytes": 83456,
+        "cumulative_tool_content_bytes": 1357,
+        "seconds": 7.286,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "86f779fed394eabd6545034a2e671b186c605c6ab761a1e09bb2b7cae1620c7f",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"847a72a15dbf10b90070f731109da69f46423d39aa95d7a5c6c41e19a49dd862\",\n  \"state\": \"verified\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15375,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16084,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 187,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16657,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 233,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17315,
+            "tool_results_seen": 3,
+            "tool_content_bytes": 374,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 18025,
+            "tool_results_seen": 4,
+            "tool_content_bytes": 563,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 75,
+            "error": null,
+            "result": null
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "already_applied",
+              "step": "update",
+              "wrote_settings": false
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          }
+        ]
+      },
+      "fastpath": {
+        "status": "verified",
+        "model_responses": 3,
+        "total_dispatches": 7,
+        "terminal_dispatches": 5,
+        "settings_replacements": 1,
+        "model_visible_tool_bytes": 1324,
+        "model_request_bytes": 53604,
+        "cumulative_tool_content_bytes": 1916,
+        "seconds": 7.072,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"ready\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/receipt.json": {
+            "sha256": "86f779fed394eabd6545034a2e671b186c605c6ab761a1e09bb2b7cae1620c7f",
+            "bytes": 325,
+            "content": "{\n  \"after_sha256\": \"253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4\",\n  \"before_sha256\": \"aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816\",\n  \"operation_id\": \"settings-mode-v1\",\n  \"request_sha256\": \"847a72a15dbf10b90070f731109da69f46423d39aa95d7a5c6c41e19a49dd862\",\n  \"state\": \"verified\"\n}\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15375,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17826,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 592,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 20403,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 1324,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          },
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 75,
+            "error": null,
+            "result": null
+          },
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "reconcile_or_repeat",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "status": "already_applied",
+              "step": "update",
+              "wrote_settings": false
+            }
+          },
+          {
+            "step": "verify",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "253a03ec1fc5c7d4414a78c000b20b3343b9542520e5d042b24cc54dd5b20bf4",
+              "status": "verified",
+              "step": "verify"
+            }
+          }
+        ],
+        "observed_settings_events": [
+          {
+            "directory": ".",
+            "mask": 128,
+            "name": "settings.json"
+          }
+        ]
+      }
+    },
+    {
+      "case": "terminal_denied",
+      "byte_identical_filesystem": true,
+      "errors": [],
+      "baseline": {
+        "status": "policy_refused",
+        "model_responses": 3,
+        "total_dispatches": 1,
+        "terminal_dispatches": 1,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 239,
+        "model_request_bytes": 48174,
+        "cumulative_tool_content_bytes": 426,
+        "seconds": 7.144,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15400,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16114,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 187,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 16660,
+            "tool_results_seen": 2,
+            "tool_content_bytes": 239,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [],
+        "policy_denials": [
+          "update"
+        ],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          }
+        ],
+        "observed_settings_events": []
+      },
+      "fastpath": {
+        "status": "policy_refused",
+        "model_responses": 2,
+        "total_dispatches": 3,
+        "terminal_dispatches": 2,
+        "settings_replacements": 0,
+        "model_visible_tool_bytes": 685,
+        "model_request_bytes": 33327,
+        "cumulative_tool_content_bytes": 685,
+        "seconds": 7.3,
+        "filesystem": {
+          "settings.json": {
+            "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+            "bytes": 75,
+            "content": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n"
+          },
+          "notes.txt": {
+            "sha256": "cf7a062340764d713acdad9ffde556abf9e9cb838973b842d876b13469750f68",
+            "bytes": 35,
+            "content": "synthetic neighbour; do not change\n"
+          },
+          ".fastpath/lock": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "bytes": 0,
+            "content": ""
+          }
+        },
+        "model_requests": [
+          {
+            "request_bytes": 15400,
+            "tool_results_seen": 0,
+            "tool_content_bytes": 0,
+            "model": "fastpath-scripted",
+            "stream": true
+          },
+          {
+            "request_bytes": 17927,
+            "tool_results_seen": 1,
+            "tool_content_bytes": 685,
+            "model": "fastpath-scripted",
+            "stream": true
+          }
+        ],
+        "native_code_approval_checks": [
+          {
+            "approved": true,
+            "user_approved": false
+          }
+        ],
+        "policy_denials": [
+          "update"
+        ],
+        "external_fault_injections": [],
+        "step_results": [
+          {
+            "step": "inspect",
+            "exit_code": 0,
+            "error": null,
+            "result": {
+              "ok": true,
+              "sha256": "aef1c233f62ac1f309888d31e1ebbb2d9c3f8108fcfd05505698ea951bd80816",
+              "status": "ready",
+              "step": "inspect"
+            }
+          },
+          {
+            "step": "update",
+            "exit_code": null,
+            "error": "synthetic policy refusal: update denied",
+            "result": null
+          }
+        ],
+        "observed_settings_events": []
+      }
+    }
+  ],
+  "focused_reproduction_cases": [
+    "success",
+    "verify_tamper",
+    "disconnect"
+  ],
+  "focused_reproduction_matches": true,
+  "self_checks_passed": 5,
+  "same_author_not_independent_peer_review": true,
+  "model_turn_reduction_proven": true,
+  "real_provider_speedup": "UNKNOWN",
+  "full_raw_receipt_local_path": ".runtime/full-results.json"
+}

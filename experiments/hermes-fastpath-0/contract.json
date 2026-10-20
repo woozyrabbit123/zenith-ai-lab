@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "upstream": "8f817911723e3ec13e7f47fc022fdcc9e2149354",
+  "origin": "https://github.com/fixture/fastpath.git",
+  "before": "{\n  \"mode\": \"draft\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n",
+  "after": "{\n  \"mode\": \"ready\",\n  \"limit\": 4,\n  \"neighbours\": [\"keep\", \"unchanged\"]\n}\n",
+  "notes": "synthetic neighbour; do not change\n",
+  "cases": [
+    {"id":"success", "status":"verified", "writes":1, "baseline_responses":4, "fastpath_responses":2, "receipt":"verified"},
+    {"id":"wrong_cwd", "status":"refused", "writes":0, "baseline_responses":2, "fastpath_responses":2, "receipt":null},
+    {"id":"wrong_repo", "status":"refused", "writes":0, "baseline_responses":2, "fastpath_responses":2, "receipt":null},
+    {"id":"precondition", "status":"refused", "writes":0, "baseline_responses":2, "fastpath_responses":2, "receipt":null},
+    {"id":"update_failure", "status":"update_failed", "writes":0, "baseline_responses":3, "fastpath_responses":2, "receipt":"prepared"},
+    {"id":"verify_tamper", "status":"verify_failed", "writes":1, "baseline_responses":4, "fastpath_responses":2, "receipt":"applied"},
+    {"id":"verify_missing", "status":"verify_failed", "writes":1, "baseline_responses":4, "fastpath_responses":2, "receipt":"applied"},
+    {"id":"repeat", "status":"verified", "writes":1, "baseline_responses":7, "fastpath_responses":3, "receipt":"verified"},
+    {"id":"disconnect", "status":"verified", "writes":1, "baseline_responses":5, "fastpath_responses":3, "receipt":"verified"},
+    {"id":"terminal_denied", "status":"policy_refused", "writes":0, "baseline_responses":3, "fastpath_responses":2, "receipt":null}
+  ],
+  "invariants": [
+    "Baseline and fastpath have byte-identical monitored filesystem outputs, including receipt",
+    "Only mode draft-to-ready may change in settings; notes and remaining settings stay unchanged",
+    "Linux inotify independently counts atomic replacements of settings.json",
+    "Invalid scope or precondition causes no new file or settings write",
+    "A repeated or recovered request must not duplicate the settings write",
+    "Verification checks actual final bytes and never trusts a previous success message",
+    "Same approved request and real upstream terminal policy in both paths",
+    "Model response counts include the final response; no live-provider speed claim"
+  ],
+  "durability_limit": "Prepared receipt, file and directory fsync are implemented; only injected process termination is tested, not OS crash or power loss. Single-host advisory lock; no distributed exactly-once guarantee."
+}

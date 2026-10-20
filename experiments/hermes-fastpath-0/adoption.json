@@ -1,0 +1,22 @@
+{
+  "name": "FASTPATH-0 inspect-update-verify recipe",
+  "state": "INACTIVE_CLOUD_RECIPE",
+  "install_allowed": false,
+  "auto_activate": false,
+  "tested_upstream": "8f817911723e3ec13e7f47fc022fdcc9e2149354",
+  "requires": [
+    "Explicit per-host owner approval and reviewed request for the exact operation",
+    "Hermes native execute_code with terminal RPC and existing approval policy enabled",
+    "Pinned and reviewed recipe source, Python 3.14, Linux advisory lock support",
+    "Exact root, origin, HEAD, before/after file hashes and neighbour hashes",
+    "Preprovisioned .fastpath directory and lock within the approved root",
+    "Independent post-write verification and retained receipt before claiming success"
+  ],
+  "not_appropriate": [
+    "Actions requiring new human judgement or approval between steps",
+    "Arbitrary shell operations, unknown state, external sends or irreversible actions",
+    "Uncooperative concurrent writers, distributed exactly-once requirements or power-loss guarantees"
+  ],
+  "rollback": "No host install is performed. Stop using the recipe and remove its reviewed source after checking pending receipts. Restore the approved before bytes only after separately verifying the current after hash and obtaining authorisation; never blindly undo concurrent edits.",
+  "live_host_tested": false
+}

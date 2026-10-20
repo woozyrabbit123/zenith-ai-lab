@@ -1,0 +1,7 @@
+{
+  "upstream": "8f817911723e3ec13e7f47fc022fdcc9e2149354",
+  "python": "Python 3.14.8",
+  "uv": "uv 0.12.23 (x86_64-unknown-linux-gnu)",
+  "setup_seconds": 17.511,
+  "lock_sha256": "7f337b67943cbb287651761c8b40a2d8e1e595b5aff47dd7deb2683717c3be41"
+}
