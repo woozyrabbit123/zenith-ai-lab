@@ -1,0 +1,10 @@
+test_changed_contract_refused (test_fastpath.SafetyChecks.test_changed_contract_refused) ... ok
+test_changed_neighbour_refused_without_writes (test_fastpath.SafetyChecks.test_changed_neighbour_refused_without_writes) ... ok
+test_kernel_observes_duplicate_replacements (test_fastpath.SafetyChecks.test_kernel_observes_duplicate_replacements) ... ok
+test_unowned_after_state_refused_without_writes (test_fastpath.SafetyChecks.test_unowned_after_state_refused_without_writes) ... ok
+test_update_preserves_permissions (test_fastpath.SafetyChecks.test_update_preserves_permissions) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.219s
+
+OK
