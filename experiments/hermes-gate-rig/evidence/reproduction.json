@@ -1,0 +1,15 @@
+{
+  "tested_candidate_commit": "5f656a6ae979330b43a0c508e9421aa44f927170",
+  "fresh_reproduction_commit": "c412f532d921620ca7bfc55c2ffb6108a982b3da",
+  "case_count_each": 27,
+  "semantic_outcomes_identical": true,
+  "self_checks_passed": 5,
+  "same_author_reproduction_not_independent_peer_review": true,
+  "fresh_source_differences_from_final": [
+    "setup.py"
+  ],
+  "difference_reason": "Final bootstrap adds --no-bin; checked with a separate fresh interpreter install and final full matrix. Runtime/gate/verifier sources are identical.",
+  "fresh_setup_seconds": 18.605,
+  "final_case_seconds_sum": 137.758,
+  "fresh_case_seconds_sum": 195.419
+}

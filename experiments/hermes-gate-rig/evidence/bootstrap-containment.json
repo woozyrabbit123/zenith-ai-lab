@@ -1,0 +1,6 @@
+{
+  "command": "uv python install --no-bin 3.14.8 (fresh task-local install directory)",
+  "python": "Python 3.14.8",
+  "user_bin_launcher_absent": true,
+  "persistent_install_location": "experiment .runtime only"
+}
