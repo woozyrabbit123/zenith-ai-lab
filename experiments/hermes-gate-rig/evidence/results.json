@@ -1,0 +1,3278 @@
+{
+  "upstream": "8f817911723e3ec13e7f47fc022fdcc9e2149354",
+  "contract_sha256": "5b82c92343127078a18eee9c81806fd2dacefad8927f44f24cffdb7ed57c148b",
+  "python": "3.14.8",
+  "entry_point": "run_agent.AIAgent.run_conversation",
+  "source_sha256": {
+    "fault_checks.py": "d983d3a414138c69f67d3d7760c627d40e7d5cf4c47c4f1de4f9347efbbdabc9",
+    "gate.py": "efd5f5191b5e0da9fc0413a2111d85da5f5af83f1d6bec7493b1200b69a165fa",
+    "run.py": "da4b7799111e06294620417d1f1b0f253d9615e275856ce98ecb0dbfcd0c13be",
+    "setup.py": "9a44575e072a3c5e963993a9c00457f1b4fa78a82d3fd79d66ebfa67b4e0628e",
+    "stub.py": "9140477cf8ebe0e49e8387c5032301f9d77ab4f8ea105dd0eff95e739e59f16f",
+    "test_rig.py": "93e2b390285bf6d2398900dd6ef7c324906df901281975ba11dd15fa3967afd3",
+    "verify.py": "348fd3ccec8467c9cceee390c73eefa2c85a59b65cfc111fafa25a268dd678f8",
+    "worker.py": "d6ed9c80fad84e4ec9c830abfaacaf670f5e49f725dbb9236ca9c46a59837524",
+    "contract.json": "5b82c92343127078a18eee9c81806fd2dacefad8927f44f24cffdb7ed57c148b",
+    "adoption.json": "d052a2b377fce8998d1373e0542a5e1207692aaaa1b084322b3be6b33681203b"
+  },
+  "results": [
+    {
+      "id": "absent_wrong",
+      "classification": "control",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [],
+      "worker": {
+        "registered": 0,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497753.700922
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.3s\n",
+      "seconds": 5.164,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "prefix_wrong",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "error",
+            "error_type": "tool_error",
+            "result": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497758.7796812
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s [exit 97]\n",
+      "seconds": 4.998,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "prefix_allowed",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "allowed/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497763.6754186
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s\n",
+      "seconds": 4.859,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "veto_wrong",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "veto",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "blocked",
+            "error_type": "plugin_block",
+            "result": "{\"error\": \"synthetic terminal veto\"}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"error\": \"synthetic terminal veto\"}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497768.5120711
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"error\": \"synthetic terminal veto\"}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.1s\n",
+      "seconds": 4.212,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "unapproved",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [],
+      "worker": {
+        "registered": 0,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497773.2470114
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "shell hook for pre_tool_call ($RIG/.runtime/venv/bin/python $RIG/gate.py --mode prefix --audit $FIXTURE/audit.jsonl) not allowlisted \u2014 skipped. Use --accept-hooks / HERMES_ACCEPT_HOOKS=1 / hooks_auto_accept: true, or approve at the TTY prompt next run.\n  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.3s\n",
+      "seconds": 5.226,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "safe_mode",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [],
+      "worker": {
+        "registered": 0,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497779.275093
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.2s\n",
+      "seconds": 5.648,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "crash",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "crash",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "blocked",
+            "error_type": "plugin_block",
+            "result": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode crash --audit $FIXTURE/audit.jsonl failed closed: hook exited 1 with no directive\"}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode crash --audit $FIXTURE/audit.jsonl failed closed: hook exited 1 with no directive\"}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497785.791001
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode crash --audit $FIXTURE/audit.jsonl failed closed: hook exited 1 with no directive\"}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.1s\n",
+      "seconds": 5.396,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "timeout",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "timeout",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "blocked",
+            "error_type": "plugin_block",
+            "result": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode timeout --audit $FIXTURE/audit.jsonl failed closed: timed out after 1s\"}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode timeout --audit $FIXTURE/audit.jsonl failed closed: timed out after 1s\"}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497790.9520268
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode timeout --audit $FIXTURE/audit.jsonl failed closed: timed out after 1s\"}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  1.0s\n",
+      "seconds": 4.956,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "empty",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "empty",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497795.8584056
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.3s\n",
+      "seconds": 5.47,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "object",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "object",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497801.1838021
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.3s\n",
+      "seconds": 4.839,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "malformed",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "malformed",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "blocked",
+            "error_type": "plugin_block",
+            "result": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode malformed --audit $FIXTURE/audit.jsonl failed closed: unparseable stdout (expected a JSON object)\"}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode malformed --audit $FIXTURE/audit.jsonl failed closed: unparseable stdout (expected a JSON object)\"}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497806.2801
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"error\": \"hook $RIG/.runtime/venv/bin/python $RIG/gate.py --mode malformed --audit $FIXTURE/audit.jsonl failed closed: unparseable stdout (expected a JSON object)\"}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.1s\n",
+      "seconds": 3.901,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "lookalike",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "error",
+            "error_type": "tool_error",
+            "result": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497811.9322221
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s [exit 97]\n",
+      "seconds": 6.083,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "ssh_origin",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "ssh/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497817.7381496
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s\n",
+      "seconds": 5.783,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "missing_origin",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "error",
+            "error_type": "tool_error",
+            "result": "{\"output\": \"IDENTITY-GUARD: refused: missing or multiple origin URLs\", \"exit_code\": 97, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"IDENTITY-GUARD: refused: missing or multiple origin URLs\", \"exit_code\": 97, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497823.3963547
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: missing or multiple origin URLs\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s [exit 97]\n",
+      "seconds": 5.557,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "multiple_origin",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "error",
+            "error_type": "tool_error",
+            "result": "{\"output\": \"IDENTITY-GUARD: refused: missing or multiple origin URLs\", \"exit_code\": 97, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"IDENTITY-GUARD: refused: missing or multiple origin URLs\", \"exit_code\": 97, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497829.4732587
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: missing or multiple origin URLs\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s [exit 97]\n",
+      "seconds": 5.968,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "workdir_override",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {},
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5,
+            "workdir": "$FIXTURE/wrong"
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5,
+              "workdir": "$FIXTURE/wrong"
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "error",
+            "error_type": "tool_error",
+            "result": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497835.4434028
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s [exit 97]\n",
+      "seconds": 5.916,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "write_file_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "write_file",
+            "args": {
+              "path": "$FIXTURE/wrong/out.txt",
+              "content": "synthetic-output\n"
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "write_file",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"bytes_written\": 17, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .txt files\"}, \"resolved_path\": \"$FIXTURE/wrong/out.txt\", \"files_modified\": [\"$FIXTURE/wrong/out.txt\"]}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "write_file",
+            "tool_name": "write_file",
+            "content": "{\"bytes_written\": 17, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .txt files\"}, \"resolved_path\": \"$FIXTURE/wrong/out.txt\", \"files_modified\": [\"$FIXTURE/wrong/out.txt\"]}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497841.0851135
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"bytes_written\": 17, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .txt files\"}, \"resolved_path\": \"$FIXTURE/wrong/out.txt\", \"files_modified\": [\"$FIXTURE/wrong/out.txt\"]}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \u270d\ufe0f  write     $FIXTURE/wrong/out.txt  0.3s\n",
+      "seconds": 5.76,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "patch_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "true",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; true",
+              "timeout": 5
+            }
+          },
+          {
+            "tool": "read_file",
+            "args": {
+              "path": "$FIXTURE/wrong/out.txt"
+            }
+          },
+          {
+            "tool": "patch",
+            "args": {
+              "path": "$FIXTURE/wrong/out.txt",
+              "old_string": "old-output\n",
+              "new_string": "synthetic-output\n"
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "error",
+            "error_type": "tool_error",
+            "result": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}"
+          },
+          {
+            "tool_name": "read_file",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"content\": \"1|old-output\", \"total_lines\": 1, \"file_size\": 11, \"truncated\": false, \"is_binary\": false, \"is_image\": false, \"not_found\": false}"
+          },
+          {
+            "tool_name": "patch",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"success\": true, \"diff\": \"--- a/$FIXTURE/wrong/out.txt\\n+++ b/$FIXTURE/wrong/out.txt\\n@@ -1 +1 @@\\n-old-output\\n+synthetic-output\\n\", \"files_modified\": [\"$FIXTURE/wrong/out.txt\"], \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .txt files\"}, \"resolved_path\": \"$FIXTURE/wrong/out.txt\"}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 4,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497846.7715116
+          },
+          {
+            "role": "tool",
+            "name": "read_file",
+            "tool_name": "read_file",
+            "content": "{\"content\": \"1|old-output\", \"total_lines\": 1, \"file_size\": 11, \"truncated\": false, \"is_binary\": false, \"is_image\": false, \"not_found\": false}",
+            "tool_call_id": "call_1",
+            "timestamp": 1792497846.805508
+          },
+          {
+            "role": "tool",
+            "name": "patch",
+            "tool_name": "patch",
+            "content": "{\"success\": true, \"diff\": \"--- a/$FIXTURE/wrong/out.txt\\n+++ b/$FIXTURE/wrong/out.txt\\n@@ -1 +1 @@\\n-old-output\\n+synthetic-output\\n\", \"files_modified\": [\"$FIXTURE/wrong/out.txt\"], \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .txt files\"}, \"resolved_path\": \"$FIXTURE/wrong/out.txt\"}",
+            "tool_call_id": "call_2",
+            "timestamp": 1792497846.944176
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            },
+            {
+              "role": "tool",
+              "content": "{\"content\": \"1|old-output\", \"total_lines\": 1, \"file_size\": 11, \"truncated\": false, \"is_binary\": false, \"is_image\": false, \"not_found\": false}",
+              "tool_call_id": "call_1"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            },
+            {
+              "role": "tool",
+              "content": "{\"content\": \"1|old-output\", \"total_lines\": 1, \"file_size\": 11, \"truncated\": false, \"is_binary\": false, \"is_image\": false, \"not_found\": false}",
+              "tool_call_id": "call_1"
+            },
+            {
+              "role": "tool",
+              "content": "{\"success\": true, \"diff\": \"--- a/$FIXTURE/wrong/out.txt\\n+++ b/$FIXTURE/wrong/out.txt\\n@@ -1 +1 @@\\n-old-output\\n+synthetic-output\\n\", \"files_modified\": [\"$FIXTURE/wrong/out.txt\"], \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .txt files\"}, \"resolved_path\": \"$FIXTURE/wrong/out.txt\"}",
+              "tool_call_id": "call_2"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool",
+            "assistant",
+            "tool",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 1 command  0.4s [exit 97]\n  \u250a \ud83d\udcd6 read      out.txt  0.0s\n  \u250a \ud83d\udd27 patch     $FIXTURE/wrong/out.txt  0.1s\n",
+      "seconds": 5.106,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "cd_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "cd $FIXTURE/wrong && printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; cd $FIXTURE/wrong && printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null, \"cwd\": \"$FIXTURE/wrong\"}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null, \"cwd\": \"$FIXTURE/wrong\"}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497852.2400224
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null, \"cwd\": \"$FIXTURE/wrong\"}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s\n",
+      "seconds": 5.394,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "python_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "$RIG/.runtime/venv/bin/python -c 'from pathlib import Path; Path('\"'\"'$FIXTURE/wrong/out.txt'\"'\"').write_text('\"'\"'synthetic-output\\n'\"'\"')'",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; $RIG/.runtime/venv/bin/python -c 'from pathlib import Path; Path('\"'\"'$FIXTURE/wrong/out.txt'\"'\"').write_text('\"'\"'synthetic-output\\n'\"'\"')'",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497857.525552
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.5s\n",
+      "seconds": 4.637,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "heredoc_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "cat > $FIXTURE/wrong/out.txt <<'SYNTHETIC'\nsynthetic-output\nSYNTHETIC",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; cat > $FIXTURE/wrong/out.txt <<'SYNTHETIC'\nsynthetic-output\nSYNTHETIC",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497862.5763133
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.4s\n",
+      "seconds": 4.96,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "subshell_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "(cd $FIXTURE/wrong && printf 'synthetic-output\\n' >> out.txt)",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; (cd $FIXTURE/wrong && printf 'synthetic-output\\n' >> out.txt)",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497867.3802114
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 3 commands  0.4s\n",
+      "seconds": 4.775,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "absolute_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> $FIXTURE/wrong/out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> $FIXTURE/wrong/out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497872.5195067
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.3s\n",
+      "seconds": 5.122,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "git_c_escape",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/git-config-marker": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "git -C $FIXTURE/wrong config rig.marker synthetic-output",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; git -C $FIXTURE/wrong config rig.marker synthetic-output",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497876.9651945
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.3s\n",
+      "seconds": 4.414,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "linked_worktree",
+      "classification": "enforced",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "linked/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497881.361873
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.3s\n",
+      "seconds": 4.382,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "second_hook_override",
+      "classification": "known_gap",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "wrong/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        },
+        {
+          "mode": "override",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        }
+      ],
+      "worker": {
+        "registered": 2,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 2,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497885.754475
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         printf 'synthetic-output\\n'  0.3s\n",
+      "seconds": 4.418,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    },
+    {
+      "id": "recovery",
+      "classification": "recovery",
+      "errors": [],
+      "expectation_matched": true,
+      "observed_effects": {
+        "allowed/out.txt": {
+          "bytes": 17,
+          "sha256": "5ae3ebfa2655d3db1626b245e1679c458ba0e779c2ddb6c7715bfa1ebf41de42",
+          "content": "synthetic-output\n"
+        }
+      },
+      "hook_audit": [
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5
+          }
+        },
+        {
+          "mode": "prefix",
+          "cwd": "$FIXTURE",
+          "tool": "terminal",
+          "args": {
+            "command": "printf 'synthetic-output\\n' >> out.txt",
+            "timeout": 5,
+            "workdir": "$FIXTURE/allowed"
+          }
+        }
+      ],
+      "worker": {
+        "registered": 1,
+        "dispatches": [
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5
+            }
+          },
+          {
+            "tool": "terminal",
+            "args": {
+              "command": "$RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed || exit 97; printf 'synthetic-output\\n' >> out.txt",
+              "timeout": 5,
+              "workdir": "$FIXTURE/allowed"
+            }
+          }
+        ],
+        "post_events": [
+          {
+            "tool_name": "terminal",
+            "status": "error",
+            "error_type": "tool_error",
+            "result": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}"
+          },
+          {
+            "tool_name": "terminal",
+            "status": "ok",
+            "error_type": null,
+            "result": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}"
+          }
+        ],
+        "completed": true,
+        "api_calls": 3,
+        "messages": [
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+            "tool_call_id": "call_0",
+            "timestamp": 1792497891.0974898
+          },
+          {
+            "role": "tool",
+            "name": "terminal",
+            "tool_name": "terminal",
+            "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+            "tool_call_id": "call_1",
+            "timestamp": 1792497891.2540448
+          }
+        ],
+        "final_response": "done"
+      },
+      "model_requests": [
+        {
+          "tool_results": [],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        },
+        {
+          "tool_results": [
+            {
+              "role": "tool",
+              "content": "{\"output\": \"IDENTITY-GUARD: refused: wrong origin\", \"exit_code\": 97, \"error\": null}",
+              "tool_call_id": "call_0"
+            },
+            {
+              "role": "tool",
+              "content": "{\"output\": \"\", \"exit_code\": 0, \"error\": null}",
+              "tool_call_id": "call_1"
+            }
+          ],
+          "stream": true,
+          "model": "rig-scripted",
+          "tool_names": [
+            "patch",
+            "read_file",
+            "search_files",
+            "terminal",
+            "write_file",
+            "tool_search",
+            "tool_describe",
+            "tool_call"
+          ],
+          "roles": [
+            "system",
+            "user",
+            "assistant",
+            "tool",
+            "assistant",
+            "tool"
+          ],
+          "path": "/v1/chat/completions"
+        }
+      ],
+      "metadata_requests": [
+        "/api/show"
+      ],
+      "process_output": "  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.3s [exit 97]\n  \u250a \ud83d\udcbb $         $RIG/.runtime/venv/bin/python $RIG/gate.py --check --expected fixture/allowed + 2 commands  0.1s\n",
+      "seconds": 4.814,
+      "command": [
+        "$RIG/.runtime/venv/bin/python",
+        "$RIG/worker.py",
+        "$FIXTURE/spec.json"
+      ]
+    }
+  ],
+  "helper_checks": [
+    {
+      "path": "tool_executor._pre_tool_block",
+      "injected": "dispatcher RuntimeError",
+      "block": null,
+      "original_args_returned": true,
+      "classification": "known_gap",
+      "level": "actual helper execution, not a full-loop tool effect"
+    },
+    {
+      "path": "agent_runtime_helpers._pre_tool_block_message",
+      "injected": "dispatcher RuntimeError",
+      "block": null,
+      "original_args_returned": true,
+      "classification": "known_gap",
+      "level": "actual helper execution, not a full-loop tool effect"
+    },
+    {
+      "path": "_get_pre_tool_call_directive_details",
+      "observed_args": {
+        "command": "second",
+        "workdir": "/synthetic/workdir",
+        "timeout": 5
+      },
+      "classification": "merge_and_later_override_observed"
+    }
+  ],
+  "all_expectations_matched": true
+}

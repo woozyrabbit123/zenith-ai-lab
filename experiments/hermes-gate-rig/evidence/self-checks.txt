@@ -1,0 +1,10 @@
+test_claimed_done_without_effect_rejected (test_rig.RigChecks.test_claimed_done_without_effect_rejected) ... ok
+test_contract_tampering_refused (test_rig.RigChecks.test_contract_tampering_refused) ... ok
+test_duplicate_effect_rejected (test_rig.RigChecks.test_duplicate_effect_rejected) ... ok
+test_metadata_probe_does_not_consume_script (test_rig.RigChecks.test_metadata_probe_does_not_consume_script) ... ok
+test_origin_forms_and_lookalikes (test_rig.RigChecks.test_origin_forms_and_lookalikes) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.514s
+
+OK
