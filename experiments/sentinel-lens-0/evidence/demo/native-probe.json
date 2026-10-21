@@ -1,0 +1,15 @@
+{
+  "rg_command": "rg -ob STOP native-probe.txt",
+  "rg_stdout": "73:STOP",
+  "old_offset_matches_after_prefix": false,
+  "git_blob_hash": "7e4258c5915e5ca64b3190709cf908efc87f3b86",
+  "whole": {
+    "sha256": "1840bf5a2350528b0b801f4e4c0441e4002081dfe93412a36407a6f65303af51",
+    "quote_start": 43
+  },
+  "page_2": {
+    "sha256": "0f8468b12b96177ee93f5b9011df914e0e47610597148ee2c3c4a8f3a765dc96",
+    "quote_start": 8
+  },
+  "conclusion": "Native commands supply literal offsets, hashing and extraction separately; no tested native command joins retained page snapshots, byte-range citations, source integrity and finite coverage. Kit is not installed in cloud."
+}

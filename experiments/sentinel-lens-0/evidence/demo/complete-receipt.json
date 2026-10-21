@@ -1,0 +1,46 @@
+{
+  "run": "complete",
+  "snapshot": {
+    "coverage": "COMPLETE",
+    "derived_bytes": 4469,
+    "gaps": [],
+    "manifest_sha256": "d353fbfeea63a55254766f1eba85a11d55930c679b70ae61b1412a7f409700de",
+    "sources": 3
+  },
+  "verification": {
+    "errors": [],
+    "gaps": [],
+    "mechanical": "PASS",
+    "semantic": "REVIEW_REQUIRED"
+  },
+  "citations": [
+    {
+      "chunk": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb:text",
+      "end": 48,
+      "extraction_sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6",
+      "quote": "Day 1: GO; rollout approved.",
+      "start": 20
+    },
+    {
+      "chunk": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb:text",
+      "end": 108,
+      "extraction_sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6",
+      "quote": "Day 2 supersedes Day 1: STOP; dependency validation failed.",
+      "start": 49
+    },
+    {
+      "chunk": "e39538e7f27a7bf579cd9b85a103c0f0b86b60b788534295538d0301a9c5dce6:text",
+      "end": 61,
+      "extraction_sha256": "d024fc328f6690e1405e67d64e1e69ab98e5d6ae540279e3419ab2b0366af14f",
+      "quote": "Budget: UNKNOWN; no approved cost figure.",
+      "start": 20
+    },
+    {
+      "chunk": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88:page:2",
+      "end": 51,
+      "extraction_sha256": "0f8468b12b96177ee93f5b9011df914e0e47610597148ee2c3c4a8f3a765dc96",
+      "quote": "dependency re-test required before rollout.",
+      "start": 8
+    }
+  ]
+}

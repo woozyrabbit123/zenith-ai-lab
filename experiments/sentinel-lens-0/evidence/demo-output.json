@@ -1,0 +1,139 @@
+{
+  "source_hashes": {
+    "decision.md": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6",
+    "notes.txt": "d024fc328f6690e1405e67d64e1e69ab98e5d6ae540279e3419ab2b0366af14f",
+    "readiness.pdf": "5da792f0829d052302812612ca336fc4e932fc76b38d02d5f9874264f13132fa"
+  },
+  "originals_unchanged": true,
+  "native_probe": {
+    "rg_command": "rg -ob STOP native-probe.txt",
+    "rg_stdout": "73:STOP",
+    "old_offset_matches_after_prefix": false,
+    "git_blob_hash": "7e4258c5915e5ca64b3190709cf908efc87f3b86",
+    "whole": {
+      "sha256": "1840bf5a2350528b0b801f4e4c0441e4002081dfe93412a36407a6f65303af51",
+      "quote_start": 43
+    },
+    "page_2": {
+      "sha256": "0f8468b12b96177ee93f5b9011df914e0e47610597148ee2c3c4a8f3a765dc96",
+      "quote_start": 8
+    },
+    "conclusion": "Native commands supply literal offsets, hashing and extraction separately; no tested native command joins retained page snapshots, byte-range citations, source integrity and finite coverage. Kit is not installed in cloud."
+  },
+  "receipts": [
+    {
+      "run": "complete",
+      "snapshot": {
+        "coverage": "COMPLETE",
+        "derived_bytes": 4469,
+        "gaps": [],
+        "manifest_sha256": "d353fbfeea63a55254766f1eba85a11d55930c679b70ae61b1412a7f409700de",
+        "sources": 3
+      },
+      "verification": {
+        "errors": [],
+        "gaps": [],
+        "mechanical": "PASS",
+        "semantic": "REVIEW_REQUIRED"
+      },
+      "citations": [
+        {
+          "chunk": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb:text",
+          "end": 48,
+          "extraction_sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6",
+          "quote": "Day 1: GO; rollout approved.",
+          "start": 20
+        },
+        {
+          "chunk": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb:text",
+          "end": 108,
+          "extraction_sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6",
+          "quote": "Day 2 supersedes Day 1: STOP; dependency validation failed.",
+          "start": 49
+        },
+        {
+          "chunk": "e39538e7f27a7bf579cd9b85a103c0f0b86b60b788534295538d0301a9c5dce6:text",
+          "end": 61,
+          "extraction_sha256": "d024fc328f6690e1405e67d64e1e69ab98e5d6ae540279e3419ab2b0366af14f",
+          "quote": "Budget: UNKNOWN; no approved cost figure.",
+          "start": 20
+        },
+        {
+          "chunk": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88:page:2",
+          "end": 51,
+          "extraction_sha256": "0f8468b12b96177ee93f5b9011df914e0e47610597148ee2c3c4a8f3a765dc96",
+          "quote": "dependency re-test required before rollout.",
+          "start": 8
+        }
+      ]
+    },
+    {
+      "run": "gaps",
+      "snapshot": {
+        "coverage": "INCOMPLETE",
+        "derived_bytes": 5523,
+        "gaps": [
+          {
+            "path": "estimate.xlsx",
+            "reason": "unsupported source type"
+          },
+          {
+            "path": "scan.pdf",
+            "reason": "empty/scanned PDF page; OCR unavailable"
+          }
+        ],
+        "manifest_sha256": "5dae5f2f5ed1fe9e3e3b391c16f38ea8ec0d3fe153960a32c9e976c03c42fa16",
+        "sources": 5
+      },
+      "verification": {
+        "errors": [],
+        "gaps": [
+          {
+            "path": "estimate.xlsx",
+            "reason": "unsupported source type"
+          },
+          {
+            "path": "scan.pdf",
+            "reason": "empty/scanned PDF page; OCR unavailable"
+          },
+          {
+            "path": ".",
+            "reason": "snapshot coverage incomplete"
+          }
+        ],
+        "mechanical": "INCOMPLETE",
+        "semantic": "REVIEW_REQUIRED"
+      },
+      "citations": [
+        {
+          "chunk": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb:text",
+          "end": 48,
+          "extraction_sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6",
+          "quote": "Day 1: GO; rollout approved.",
+          "start": 20
+        },
+        {
+          "chunk": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb:text",
+          "end": 108,
+          "extraction_sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6",
+          "quote": "Day 2 supersedes Day 1: STOP; dependency validation failed.",
+          "start": 49
+        },
+        {
+          "chunk": "e39538e7f27a7bf579cd9b85a103c0f0b86b60b788534295538d0301a9c5dce6:text",
+          "end": 61,
+          "extraction_sha256": "d024fc328f6690e1405e67d64e1e69ab98e5d6ae540279e3419ab2b0366af14f",
+          "quote": "Budget: UNKNOWN; no approved cost figure.",
+          "start": 20
+        },
+        {
+          "chunk": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88:page:2",
+          "end": 51,
+          "extraction_sha256": "0f8468b12b96177ee93f5b9011df914e0e47610597148ee2c3c4a8f3a765dc96",
+          "quote": "dependency re-test required before rollout.",
+          "start": 8
+        }
+      ]
+    }
+  ]
+}
