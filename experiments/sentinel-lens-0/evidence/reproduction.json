@@ -1,0 +1,22 @@
+{
+  "tested_commit": "1f2b904b86abd2c0dc22295969511baec988a146",
+  "base_commit": "2c99a1a1aa758b0e94b21cd0804474f7fc029db1",
+  "contract_commit": "03911787d71a366a78dbcb729c7f8d014a92382a",
+  "runtime": "Python 3.12.14 / Linux cloud",
+  "test_command": "python -m unittest discover -s experiments/sentinel-lens-0 -p test_lens.py -v",
+  "fresh_worktree_result": "22 tests / 0 failures / 0 errors / 0 skipped; 3.737 seconds",
+  "demo_command": "python experiments/sentinel-lens-0/demo.py --work /tmp/zen43-lens-fresh-demo",
+  "fresh_demo_exact_match": true,
+  "changed_scope": "experiments/sentinel-lens-0/**",
+  "state": "CLOUD_TESTED / LAPTOP_NOT_VERIFIED",
+  "ci_run": false,
+  "installed": false,
+  "merged": false,
+  "sha256": {
+    "lens.py": "a1c7e02ada1224a09327eaeee3b5d7d5c7f9e4b969f645ddc33725c49167d814",
+    "test_lens.py": "2edb5866ef38430a35966c020c644d07b1a86b98b0a5327f293bf34413ff6893",
+    "demo.py": "6504a3d30b137f485bbbcf6c03582594aaf2aa5ca88a969ad5de892bf938608f",
+    "CONTRACT.md": "1a5f80be9f85ea76b6468b86a776716e800401ffccb63ee6ca25ddd2e64fdbee",
+    "evidence/demo-output.json": "3607e259591d0c6d2dcc081b115e454d42aea26f3a07600b6589667d69c49bcd"
+  }
+}
