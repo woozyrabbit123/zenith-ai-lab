@@ -1,0 +1,132 @@
+test_alias_transitive_candidate_test_and_exact_edges (test_impact.ImpactTests.test_alias_transitive_candidate_test_and_exact_edges) ... FAIL
+test_caps_and_unknown_symbol_never_safe (test_impact.ImpactTests.test_caps_and_unknown_symbol_never_safe) ... FAIL
+test_parameter_assignment_and_duplicate_import_shadowing (test_impact.ImpactTests.test_parameter_assignment_and_duplicate_import_shadowing) ... FAIL
+test_relative_module_alias_and_cycle_cutoff (test_impact.ImpactTests.test_relative_module_alias_and_cycle_cutoff) ... FAIL
+test_same_name_modules_are_not_conflated (test_impact.ImpactTests.test_same_name_modules_are_not_conflated) ... FAIL
+test_source_snapshot_and_graph_mutations (test_impact.ImpactTests.test_source_snapshot_and_graph_mutations) ... FAIL
+test_symlink_fifo_parent_traversal_and_output_preservation (test_impact.ImpactTests.test_symlink_fifo_parent_traversal_and_output_preservation) ... FAIL
+test_syntax_dynamic_wildcard_and_nested_gaps (test_impact.ImpactTests.test_syntax_dynamic_wildcard_and_nested_gaps) ... FAIL
+test_target_source_is_never_executed (test_impact.ImpactTests.test_target_source_is_never_executed) ... FAIL
+test_unicode_crlf_offsets (test_impact.ImpactTests.test_unicode_crlf_offsets) ... FAIL
+
+======================================================================
+FAIL: test_alias_transitive_candidate_test_and_exact_edges (test_impact.ImpactTests.test_alias_transitive_candidate_test_and_exact_edges)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 51, in test_alias_transitive_candidate_test_and_exact_edges
+    code, report = self.trace()
+                   ^^^^^^^^^^^^
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_caps_and_unknown_symbol_never_safe (test_impact.ImpactTests.test_caps_and_unknown_symbol_never_safe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 138, in test_caps_and_unknown_symbol_never_safe
+    code, r = self.trace(out=self.base/f'cap-{i}', extra=extra)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_parameter_assignment_and_duplicate_import_shadowing (test_impact.ImpactTests.test_parameter_assignment_and_duplicate_import_shadowing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 77, in test_parameter_assignment_and_duplicate_import_shadowing
+    self.trace()
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_relative_module_alias_and_cycle_cutoff (test_impact.ImpactTests.test_relative_module_alias_and_cycle_cutoff)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 93, in test_relative_module_alias_and_cycle_cutoff
+    _, report = self.trace('pkg.core.check')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_same_name_modules_are_not_conflated (test_impact.ImpactTests.test_same_name_modules_are_not_conflated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 84, in test_same_name_modules_are_not_conflated
+    self.trace()
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_source_snapshot_and_graph_mutations (test_impact.ImpactTests.test_source_snapshot_and_graph_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 117, in test_source_snapshot_and_graph_mutations
+    self.trace()
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_symlink_fifo_parent_traversal_and_output_preservation (test_impact.ImpactTests.test_symlink_fifo_parent_traversal_and_output_preservation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 127, in test_symlink_fifo_parent_traversal_and_output_preservation
+    code, report = self.trace()
+                   ^^^^^^^^^^^^
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_syntax_dynamic_wildcard_and_nested_gaps (test_impact.ImpactTests.test_syntax_dynamic_wildcard_and_nested_gaps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 109, in test_syntax_dynamic_wildcard_and_nested_gaps
+    code, r = self.trace()
+              ^^^^^^^^^^^^
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_target_source_is_never_executed (test_impact.ImpactTests.test_target_source_is_never_executed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 102, in test_target_source_is_never_executed
+    code, r = self.trace()
+              ^^^^^^^^^^^^
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_unicode_crlf_offsets (test_impact.ImpactTests.test_unicode_crlf_offsets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 66, in test_unicode_crlf_offsets
+    code, r = self.trace()
+              ^^^^^^^^^^^^
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 36, in trace
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-impact-0/experiments/sentinel-impact-0/impact.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.122s
+
+FAILED (failures=10)
