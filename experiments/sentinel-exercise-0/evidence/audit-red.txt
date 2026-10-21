@@ -1,0 +1,51 @@
+test_code_replacement_does_not_count_original_function (__main__.ExerciseTests.test_code_replacement_does_not_count_original_function) ... ok
+test_custom_runner_that_omits_tests_is_incomplete (__main__.ExerciseTests.test_custom_runner_that_omits_tests_is_incomplete) ... FAIL
+test_descendant_process_does_not_outlive_worker (__main__.ExerciseTests.test_descendant_process_does_not_outlive_worker) ... FAIL
+test_discovery_call_is_not_credited_to_test (__main__.ExerciseTests.test_discovery_call_is_not_credited_to_test) ... ok
+test_duplicate_test_identity_refuses_execution (__main__.ExerciseTests.test_duplicate_test_identity_refuses_execution) ... FAIL
+test_dynamic_method_dispatch_is_observed (__main__.ExerciseTests.test_dynamic_method_dispatch_is_observed) ... ok
+test_failure_subtest_skip_and_expected_failure_remain_explicit (__main__.ExerciseTests.test_failure_subtest_skip_and_expected_failure_remain_explicit) ... ok
+test_input_refusal_and_existing_output_preserve_inputs (__main__.ExerciseTests.test_input_refusal_and_existing_output_preserve_inputs) ... ok
+test_large_test_identifiers_keep_packet_bounded (__main__.ExerciseTests.test_large_test_identifiers_keep_packet_bounded) ... ok
+test_missing_or_ambiguous_target_never_executes_tests (__main__.ExerciseTests.test_missing_or_ambiguous_target_never_executes_tests) ... ok
+test_only_decoy_is_not_observed (__main__.ExerciseTests.test_only_decoy_is_not_observed) ... ok
+test_other_thread_call_is_explicitly_out_of_scope (__main__.ExerciseTests.test_other_thread_call_is_explicitly_out_of_scope) ... ok
+test_profiler_disable_invalidates_proof (__main__.ExerciseTests.test_profiler_disable_invalidates_proof) ... ok
+test_real_alias_and_green_decoy_are_distinguished (__main__.ExerciseTests.test_real_alias_and_green_decoy_are_distinguished) ... ok
+test_same_name_in_another_file_is_not_selected (__main__.ExerciseTests.test_same_name_in_another_file_is_not_selected) ... ok
+test_same_qualified_code_with_changed_constant_is_rejected (__main__.ExerciseTests.test_same_qualified_code_with_changed_constant_is_rejected) ... ok
+test_setup_and_teardown_count_but_class_hooks_are_unassigned (__main__.ExerciseTests.test_setup_and_teardown_count_but_class_hooks_are_unassigned) ... ok
+test_source_mutation_invalidates_observation (__main__.ExerciseTests.test_source_mutation_invalidates_observation) ... ok
+test_test_wall_and_output_limits_refuse_clean_proof (__main__.ExerciseTests.test_test_wall_and_output_limits_refuse_clean_proof) ... ok
+test_unexpected_success_and_fixture_error_are_explicit (__main__.ExerciseTests.test_unexpected_success_and_fixture_error_are_explicit) ... ok
+
+======================================================================
+FAIL: test_custom_runner_that_omits_tests_is_incomplete (__main__.ExerciseTests.test_custom_runner_that_omits_tests_is_incomplete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-exercise-0/experiments/sentinel-exercise-0/test_exercise.py", line 144, in test_custom_runner_that_omits_tests_is_incomplete
+    code,r=self.call();self.assertEqual(code,2,r)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2 : {'artifacts': {'manifest': 'manifest.json', 'result': 'result.json'}, 'gaps': [], 'integrity': 'PASS', 'integrity_errors': [], 'manifest_sha256': '2cd749d8903f9847e91b56d706653db81354827d68eafe929b88efd86368d0c5', 'not_observed_test_count': 1, 'not_observed_tests': ['test_flow.Tests.test_body'], 'observed_test_count': 0, 'observed_tests': [], 'scope': 'Main-thread Python call events during unittest contexts; not line/branch/assertion coverage.', 'status': 'NOT_OBSERVED_IN_SCOPE', 'target': {'code_sha256': 'b4a94d52a9fe117871b1792a43e32a33801d0530f2a047fe586c1e9d7bf88238', 'first_line': 1, 'path': 'engine.py', 'qualname': 'validate', 'source_sha256': '202ba0e9d5fd300a5ba223ed7ce67c3e703ba81386a65777afbe73007132a40e'}, 'test_details_omitted': False, 'test_result': 'PASS', 'tests_run': 0, 'unassigned_call_events': 0, 'warnings': ['Setup/teardown calls count; discovery/class-hook calls are unassigned.', 'Other threads/processes and temporarily disabled profiling can hide calls. Trusted tests only; not an OS sandbox.']}
+
+======================================================================
+FAIL: test_descendant_process_does_not_outlive_worker (__main__.ExerciseTests.test_descendant_process_does_not_outlive_worker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-exercise-0/experiments/sentinel-exercise-0/test_exercise.py", line 154, in test_descendant_process_does_not_outlive_worker
+    self.assertFalse(marker.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_duplicate_test_identity_refuses_execution (__main__.ExerciseTests.test_duplicate_test_identity_refuses_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-exercise-0/experiments/sentinel-exercise-0/test_exercise.py", line 139, in test_duplicate_test_identity_refuses_execution
+    code,r=self.call();self.assertEqual(code,2,r)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2 : {'artifacts': {'manifest': 'manifest.json', 'result': 'result.json'}, 'gaps': [], 'integrity': 'PASS', 'integrity_errors': [], 'manifest_sha256': 'f2628d1064549c9157f4bd874d652349150103836541cb8e2c4bbb1635beb181', 'not_observed_test_count': 1, 'not_observed_tests': ['test_flow.Tests.test_body'], 'observed_test_count': 0, 'observed_tests': [], 'scope': 'Main-thread Python call events during unittest contexts; not line/branch/assertion coverage.', 'status': 'NOT_OBSERVED_IN_SCOPE', 'target': {'code_sha256': 'b4a94d52a9fe117871b1792a43e32a33801d0530f2a047fe586c1e9d7bf88238', 'first_line': 1, 'path': 'engine.py', 'qualname': 'validate', 'source_sha256': '202ba0e9d5fd300a5ba223ed7ce67c3e703ba81386a65777afbe73007132a40e'}, 'test_details_omitted': False, 'test_result': 'PASS', 'tests_run': 2, 'unassigned_call_events': 0, 'warnings': ['Setup/teardown calls count; discovery/class-hook calls are unassigned.', 'Other threads/processes and temporarily disabled profiling can hide calls. Trusted tests only; not an OS sandbox.']}
+
+----------------------------------------------------------------------
+Ran 20 tests in 5.475s
+
+FAILED (failures=3)
