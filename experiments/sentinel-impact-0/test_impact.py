@@ -143,6 +143,49 @@ class ImpactTests(unittest.TestCase):
         self.assertEqual(r['status'], 'UNKNOWN_SYMBOL')
         self.assertNotIn('safe_to_edit', r)
 
+    def test_rebound_export_and_method_dispatch_remain_unknown(self):
+        self.put('engine.py', 'def validate(x):\n    return x\nvalidate = lambda x: False\nclass C:\n    def method(self):\n        return 1\n')
+        self.put('methods.py', 'import engine\ndef run():\n    return engine.C.method(None)\n')
+        self.trace()
+        self.assertFalse(any(e['callee']=='engine.validate' for e in self.graph()['edges']))
+        self.assertFalse(any(e['callee']=='engine.C.method' for e in self.graph()['edges']))
+
+    def test_conditional_wildcard_and_class_test_callers(self):
+        self.put('uncertain.py', 'from engine import validate\nif True:\n    from other import *\ndef run():\n    return validate(1)\n')
+        self.put('test_class.py', 'from pipeline import run as launch\nclass Tests:\n    def test_good(self):\n        assert launch(1)\n')
+        _,r=self.trace()
+        self.assertFalse(any(e['caller']=='uncertain.run' for e in self.graph()['edges']))
+        candidate=next(c for c in r['candidates'] if c['symbol']=='test_class.Tests.test_good')
+        self.assertTrue(candidate['candidate_test'])
+
+    def test_exception_and_pattern_binding_shadowing(self):
+        self.put('binding.py', 'from engine import validate as check\ndef a():\n    try:\n        raise ValueError()\n    except ValueError as check:\n        return check(1)\ndef b(x):\n    match x:\n        case {"value": check}:\n            return check(1)\n')
+        self.trace()
+        self.assertFalse(any(e['caller'].startswith('binding.') for e in self.graph()['edges']))
+
+    def test_duplicate_module_and_parser_refusal_are_explicit(self):
+        self.put('same.py', 'def choose():\n    return 1\n')
+        self.put('same/__init__.py', 'def choose():\n    return 2\n')
+        self.put('deep.py', 'data = ' + '['*1000 + '0' + ']'*1000)
+        code,r=self.trace()
+        self.assertEqual(code,1,r)
+        self.assertGreaterEqual(r['gap_count'],3)
+        self.assertFalse(any(d['id']=='same.choose' for d in self.graph()['definitions']))
+
+    def test_verify_failure_packet_is_bounded(self):
+        folder='/'.join(['a'*150,'b'*150,'c'*150])
+        names=[f'{folder}/source_{i:02}.py' for i in range(24)]
+        for name in names:
+            self.put(name,'def spare():\n    return 0\n')
+        self.trace()
+        expected=hashlib.sha256((self.out/'graph.json').read_bytes()).hexdigest()
+        for name in names:
+            (self.root/name).unlink()
+        p=subprocess.run([sys.executable,str(CLI),'verify','--root',str(self.root),'--out',str(self.out),'--graph-sha256',expected],capture_output=True,timeout=35)
+        self.assertEqual(p.returncode,2)
+        self.assertLessEqual(len(p.stdout),8192)
+        self.assertEqual(json.loads(p.stdout)['mechanical'],'FAIL')
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
