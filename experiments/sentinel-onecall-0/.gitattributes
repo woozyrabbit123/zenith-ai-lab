@@ -1,0 +1,3 @@
+*.pdf binary
+*.utf8 -text whitespace=cr-at-eol
+evidence/demo/input/02-review.txt -text whitespace=cr-at-eol

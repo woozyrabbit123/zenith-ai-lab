@@ -1,0 +1,246 @@
+test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) ... 
+  test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--file-bytes', 2)) ... FAIL
+  test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--output-bytes', 32)) ... FAIL
+  test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--seconds', 1e-06)) ... FAIL
+  test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--entries', 1)) ... FAIL
+  test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--depth', 1)) ... FAIL
+test_conflict_does_not_become_current_decision (test_onecall.OnecallTests.test_conflict_does_not_become_current_decision) ... FAIL
+test_dependency_hash_mismatch_refused (test_onecall.OnecallTests.test_dependency_hash_mismatch_refused) ... ERROR
+test_empty_whitespace_and_oversized_queries_refused (test_onecall.OnecallTests.test_empty_whitespace_and_oversized_queries_refused) ... FAIL
+test_hit_and_packet_bounds_deterministic (test_onecall.OnecallTests.test_hit_and_packet_bounds_deterministic) ... FAIL
+test_real_33_page_pdf_remains_incomplete (test_onecall.OnecallTests.test_real_33_page_pdf_remains_incomplete) ... FAIL
+test_real_poppler_physical_page (test_onecall.OnecallTests.test_real_poppler_physical_page) ... FAIL
+test_single_invocation_offsets_unicode_crlf_and_data_only (test_onecall.OnecallTests.test_single_invocation_offsets_unicode_crlf_and_data_only) ... FAIL
+test_source_mutation_before_same_workflow_verify (test_onecall.OnecallTests.test_source_mutation_before_same_workflow_verify) ... FAIL
+test_symlink_fifo_and_unsupported_stay_gaps (test_onecall.OnecallTests.test_symlink_fifo_and_unsupported_stay_gaps) ... FAIL
+test_traversal_symlink_output_overlap_and_existing (test_onecall.OnecallTests.test_traversal_symlink_output_overlap_and_existing) ... FAIL
+test_unknown_and_bogus_literal (test_onecall.OnecallTests.test_unknown_and_bogus_literal) ... 
+  test_unknown_and_bogus_literal (test_onecall.OnecallTests.test_unknown_and_bogus_literal) (query='no such quote') ... FAIL
+  test_unknown_and_bogus_literal (test_onecall.OnecallTests.test_unknown_and_bogus_literal) (query='ship.*blue') ... FAIL
+  test_unknown_and_bogus_literal (test_onecall.OnecallTests.test_unknown_and_bogus_literal) (query='SHIP BLUE') ... FAIL
+
+======================================================================
+ERROR: test_dependency_hash_mismatch_refused (test_onecall.OnecallTests.test_dependency_hash_mismatch_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 189, in test_dependency_hash_mismatch_refused
+    copy.write_bytes(CLI.read_bytes())
+                     ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py'
+
+======================================================================
+FAIL: test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--file-bytes', 2))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 158, in test_caps_no_silent_complete
+    code, packet = self.call(out=self.base / f'cap-{i}', extra=extra)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--output-bytes', 32))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 158, in test_caps_no_silent_complete
+    code, packet = self.call(out=self.base / f'cap-{i}', extra=extra)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--seconds', 1e-06))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 158, in test_caps_no_silent_complete
+    code, packet = self.call(out=self.base / f'cap-{i}', extra=extra)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--entries', 1))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 158, in test_caps_no_silent_complete
+    code, packet = self.call(out=self.base / f'cap-{i}', extra=extra)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_caps_no_silent_complete (test_onecall.OnecallTests.test_caps_no_silent_complete) (extra=('--depth', 1))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 158, in test_caps_no_silent_complete
+    code, packet = self.call(out=self.base / f'cap-{i}', extra=extra)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_conflict_does_not_become_current_decision (test_onecall.OnecallTests.test_conflict_does_not_become_current_decision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 98, in test_conflict_does_not_become_current_decision
+    code, packet = self.call()
+                   ^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_empty_whitespace_and_oversized_queries_refused (test_onecall.OnecallTests.test_empty_whitespace_and_oversized_queries_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 77, in test_empty_whitespace_and_oversized_queries_refused
+    code, packet = self.call(query)
+                   ^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_hit_and_packet_bounds_deterministic (test_onecall.OnecallTests.test_hit_and_packet_bounds_deterministic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 85, in test_hit_and_packet_bounds_deterministic
+    code, packet = self.call()
+                   ^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_real_33_page_pdf_remains_incomplete (test_onecall.OnecallTests.test_real_33_page_pdf_remains_incomplete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 117, in test_real_33_page_pdf_remains_incomplete
+    code, packet = self.call()
+                   ^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_real_poppler_physical_page (test_onecall.OnecallTests.test_real_poppler_physical_page)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 109, in test_real_poppler_physical_page
+    code, packet = self.call()
+                   ^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_single_invocation_offsets_unicode_crlf_and_data_only (test_onecall.OnecallTests.test_single_invocation_offsets_unicode_crlf_and_data_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 53, in test_single_invocation_offsets_unicode_crlf_and_data_only
+    code, packet = self.call('café')
+                   ^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_source_mutation_before_same_workflow_verify (test_onecall.OnecallTests.test_source_mutation_before_same_workflow_verify)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 179, in test_source_mutation_before_same_workflow_verify
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1132, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1190, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py'
+
+
+======================================================================
+FAIL: test_symlink_fifo_and_unsupported_stay_gaps (test_onecall.OnecallTests.test_symlink_fifo_and_unsupported_stay_gaps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 129, in test_symlink_fifo_and_unsupported_stay_gaps
+    code, packet = self.call()
+                   ^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_traversal_symlink_output_overlap_and_existing (test_onecall.OnecallTests.test_traversal_symlink_output_overlap_and_existing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 140, in test_traversal_symlink_output_overlap_and_existing
+    code, packet = self.call(root=root, out=out)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_unknown_and_bogus_literal (test_onecall.OnecallTests.test_unknown_and_bogus_literal) (query='no such quote')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 68, in test_unknown_and_bogus_literal
+    code, packet = self.call(query, out=self.base / str(len(query)))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_unknown_and_bogus_literal (test_onecall.OnecallTests.test_unknown_and_bogus_literal) (query='ship.*blue')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 68, in test_unknown_and_bogus_literal
+    code, packet = self.call(query, out=self.base / str(len(query)))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_unknown_and_bogus_literal (test_onecall.OnecallTests.test_unknown_and_bogus_literal) (query='SHIP BLUE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 68, in test_unknown_and_bogus_literal
+    code, packet = self.call(query, out=self.base / str(len(query)))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/test_onecall.py", line 35, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-onecall-0/experiments/sentinel-onecall-0/onecall.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.226s
+
+FAILED (failures=17, errors=1)
