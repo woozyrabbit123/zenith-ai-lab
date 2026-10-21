@@ -1,0 +1,28 @@
+test_code_replacement_does_not_count_original_function (test_exercise.ExerciseTests.test_code_replacement_does_not_count_original_function) ... ok
+test_cpu_limit_never_returns_clean_observation (test_exercise.ExerciseTests.test_cpu_limit_never_returns_clean_observation) ... ok
+test_custom_runner_that_omits_tests_is_incomplete (test_exercise.ExerciseTests.test_custom_runner_that_omits_tests_is_incomplete) ... ok
+test_descendant_process_does_not_outlive_worker (test_exercise.ExerciseTests.test_descendant_process_does_not_outlive_worker) ... ok
+test_discovery_call_is_not_credited_to_test (test_exercise.ExerciseTests.test_discovery_call_is_not_credited_to_test) ... ok
+test_duplicate_test_identity_refuses_execution (test_exercise.ExerciseTests.test_duplicate_test_identity_refuses_execution) ... ok
+test_dynamic_method_dispatch_is_observed (test_exercise.ExerciseTests.test_dynamic_method_dispatch_is_observed) ... ok
+test_failure_subtest_skip_and_expected_failure_remain_explicit (test_exercise.ExerciseTests.test_failure_subtest_skip_and_expected_failure_remain_explicit) ... ok
+test_generator_resumptions_are_call_events_not_invocations (test_exercise.ExerciseTests.test_generator_resumptions_are_call_events_not_invocations) ... ok
+test_input_byte_file_and_special_file_caps_prevent_execution (test_exercise.ExerciseTests.test_input_byte_file_and_special_file_caps_prevent_execution) ... ok
+test_input_refusal_and_existing_output_preserve_inputs (test_exercise.ExerciseTests.test_input_refusal_and_existing_output_preserve_inputs) ... ok
+test_large_test_identifiers_keep_packet_bounded (test_exercise.ExerciseTests.test_large_test_identifiers_keep_packet_bounded) ... ok
+test_missing_or_ambiguous_target_never_executes_tests (test_exercise.ExerciseTests.test_missing_or_ambiguous_target_never_executes_tests) ... ok
+test_only_decoy_is_not_observed (test_exercise.ExerciseTests.test_only_decoy_is_not_observed) ... ok
+test_other_thread_call_is_explicitly_out_of_scope (test_exercise.ExerciseTests.test_other_thread_call_is_explicitly_out_of_scope) ... ok
+test_profiler_disable_invalidates_proof (test_exercise.ExerciseTests.test_profiler_disable_invalidates_proof) ... ok
+test_real_alias_and_green_decoy_are_distinguished (test_exercise.ExerciseTests.test_real_alias_and_green_decoy_are_distinguished) ... ok
+test_same_name_in_another_file_is_not_selected (test_exercise.ExerciseTests.test_same_name_in_another_file_is_not_selected) ... ok
+test_same_qualified_code_with_changed_constant_is_rejected (test_exercise.ExerciseTests.test_same_qualified_code_with_changed_constant_is_rejected) ... ok
+test_setup_and_teardown_count_but_class_hooks_are_unassigned (test_exercise.ExerciseTests.test_setup_and_teardown_count_but_class_hooks_are_unassigned) ... ok
+test_source_mutation_invalidates_observation (test_exercise.ExerciseTests.test_source_mutation_invalidates_observation) ... ok
+test_test_wall_and_output_limits_refuse_clean_proof (test_exercise.ExerciseTests.test_test_wall_and_output_limits_refuse_clean_proof) ... ok
+test_unexpected_success_and_fixture_error_are_explicit (test_exercise.ExerciseTests.test_unexpected_success_and_fixture_error_are_explicit) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 8.914s
+
+OK

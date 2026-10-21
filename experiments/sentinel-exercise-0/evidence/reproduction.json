@@ -1,0 +1,109 @@
+{
+  "audit_red": "20 tests, three failing adversaries before fixes: duplicate IDs, omitted execution, orphan child",
+  "audit_red_commit": "88535181b83912e088d738e4904d2f7e6767bd8d",
+  "base_commit": "73239b3afb6838fc057da1e3904c5b3b4df9536b",
+  "changed_paths": [
+    "experiments/sentinel-exercise-0/.gitignore",
+    "experiments/sentinel-exercise-0/CONTRACT.md",
+    "experiments/sentinel-exercise-0/README.md",
+    "experiments/sentinel-exercise-0/demo.py",
+    "experiments/sentinel-exercise-0/evidence/audit-red.txt",
+    "experiments/sentinel-exercise-0/evidence/brief.md",
+    "experiments/sentinel-exercise-0/evidence/demo-py314.json",
+    "experiments/sentinel-exercise-0/evidence/demo/after/773b7e340b77c3c54109da863b41163ac971f899da59d8efcbfba7ce8a9c7e88.source",
+    "experiments/sentinel-exercise-0/evidence/demo/after/a4848875691617b18fbf3034ec3e326259863744e3df1670177d6609e45c0b74.source",
+    "experiments/sentinel-exercise-0/evidence/demo/after/manifest.json",
+    "experiments/sentinel-exercise-0/evidence/demo/after/packet.json",
+    "experiments/sentinel-exercise-0/evidence/demo/after/result.json",
+    "experiments/sentinel-exercise-0/evidence/demo/after/worker-response.bin",
+    "experiments/sentinel-exercise-0/evidence/demo/before/773b7e340b77c3c54109da863b41163ac971f899da59d8efcbfba7ce8a9c7e88.source",
+    "experiments/sentinel-exercise-0/evidence/demo/before/a4848875691617b18fbf3034ec3e326259863744e3df1670177d6609e45c0b74.source",
+    "experiments/sentinel-exercise-0/evidence/demo/before/manifest.json",
+    "experiments/sentinel-exercise-0/evidence/demo/before/packet.json",
+    "experiments/sentinel-exercise-0/evidence/demo/before/result.json",
+    "experiments/sentinel-exercise-0/evidence/demo/before/worker-response.bin",
+    "experiments/sentinel-exercise-0/evidence/demo/receipt.json",
+    "experiments/sentinel-exercise-0/evidence/fresh-py312.txt",
+    "experiments/sentinel-exercise-0/evidence/fresh-py314.txt",
+    "experiments/sentinel-exercise-0/evidence/green-py312.txt",
+    "experiments/sentinel-exercise-0/evidence/green-py314.txt",
+    "experiments/sentinel-exercise-0/evidence/initial-green.txt",
+    "experiments/sentinel-exercise-0/evidence/public-probe/derived/6863968d9bf8590470657ca98e938ad5bfad9f720a23aec16f71cf249ba61895.source",
+    "experiments/sentinel-exercise-0/evidence/public-probe/derived/94b4e0111595ce7fbd661b42294fd2b89c319e0ade60d253403faff4d04cf4eb.source",
+    "experiments/sentinel-exercise-0/evidence/public-probe/derived/manifest.json",
+    "experiments/sentinel-exercise-0/evidence/public-probe/derived/packet.json",
+    "experiments/sentinel-exercise-0/evidence/public-probe/derived/result.json",
+    "experiments/sentinel-exercise-0/evidence/public-probe/derived/worker-response.bin",
+    "experiments/sentinel-exercise-0/evidence/public-probe/receipt.json",
+    "experiments/sentinel-exercise-0/evidence/public-py314.json",
+    "experiments/sentinel-exercise-0/evidence/red.txt",
+    "experiments/sentinel-exercise-0/evidence/reproduction.json",
+    "experiments/sentinel-exercise-0/exercise.py",
+    "experiments/sentinel-exercise-0/fixtures/public/operator_recipe.py",
+    "experiments/sentinel-exercise-0/fixtures/public/test_recipe.py",
+    "experiments/sentinel-exercise-0/test_exercise.py"
+  ],
+  "commands": [
+    "python -m unittest discover -s experiments/sentinel-exercise-0 -p test_exercise.py -v",
+    "python experiments/sentinel-exercise-0/demo.py --work /tmp/exercise-demo-new",
+    "python experiments/sentinel-exercise-0/demo.py --public-probe --work /tmp/exercise-public-new"
+  ],
+  "contract_and_red_commit": "4f8e5f5ec277810c21f4d8b1fd8cd46052bab4ca",
+  "final_commit_additions": "Evidence only: this receipt and two fresh-run transcripts; implementation unchanged.",
+  "fresh_reproduction": {
+    "cross_python_byte_identical_claim": false,
+    "detached_at": "e2261329af30b15d12aaaf0592dc83abda084842",
+    "public_receipt_and_all_tracked_derived_files_exact_match": true,
+    "same_runtime": "3.12.14",
+    "source_and_helper_bytes_match": true,
+    "synthetic_receipt_and_all_tracked_derived_files_exact_match": true
+  },
+  "helper_sha256": "a1c7e02ada1224a09327eaeee3b5d7d5c7f9e4b969f645ddc33725c49167d814",
+  "identity": "Cloud Codex, verified managed cloud execution",
+  "issue": "ZEN-46",
+  "no_deployment": true,
+  "no_hermes_rpc_calls": true,
+  "no_installs": true,
+  "no_merge": true,
+  "no_model_api_calls": true,
+  "observation_scope": "Trusted unittest contexts; main-thread Python call events only. Not assertion/line/branch coverage or an OS sandbox.",
+  "original_red": "12 failures: CLI absent",
+  "packet_bytes": {
+    "demo/after": 1010,
+    "demo/before": 1023,
+    "public-probe/derived": 1086
+  },
+  "public": true,
+  "receipts": {
+    "demo": "80a0da0c2c94bf7fa9cc81b9613e7df2a9624f72b609ba864ff41c1374e1508f",
+    "public-probe": "61dcc6770d626bb3801e9366d46fd5f2dadd0b94bd3df2bb5325b91bc230e631"
+  },
+  "repository": "woozyrabbit123/zenith-ai-lab",
+  "runtimes": [
+    {
+      "failed": 0,
+      "fresh_worktree": true,
+      "python": "3.12.14",
+      "skipped": 0,
+      "tests": 23
+    },
+    {
+      "already_cached": true,
+      "failed": 0,
+      "fresh_worktree": true,
+      "python": "3.14.8",
+      "skipped": 0,
+      "tests": 23
+    }
+  ],
+  "source_sha256": {
+    "experiments/sentinel-exercise-0/CONTRACT.md": "4bcfe20f7593659d200d287d5cebe3b6c56422f3a937d84488faa445757c9461",
+    "experiments/sentinel-exercise-0/README.md": "5b3afcab8c257599af9c2cc6ebef3bc7e767a6d0f3f1d37fe76279ba213f8c44",
+    "experiments/sentinel-exercise-0/demo.py": "db166706ab693a6073bf29cc0fcfa1bb729c2131ddeb2d48286ddc020e88beca",
+    "experiments/sentinel-exercise-0/exercise.py": "cff308f54c24d0f77a27f500bfc85a547bbc124935e45f54baee44c826f15d20",
+    "experiments/sentinel-exercise-0/fixtures/public/operator_recipe.py": "b4da1ae1c42e8654a3384b2ea971cc1663b193446872a8f07a9d75b6a6213dc1",
+    "experiments/sentinel-exercise-0/fixtures/public/test_recipe.py": "2586128585bf88a49f282613ae01a03a4069b4ec861ce13982d6614d5db73e0d",
+    "experiments/sentinel-exercise-0/test_exercise.py": "00a02de0210d763546fcbe252ee6fd3ae738093e5d56146fbb09bb4b583b9627"
+  },
+  "tested_implementation_commit": "e2261329af30b15d12aaaf0592dc83abda084842"
+}
