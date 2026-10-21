@@ -1,0 +1,60 @@
+{
+  "changed_paths": [
+    "experiments/sentinel-impact-0/.gitattributes",
+    "experiments/sentinel-impact-0/.gitignore",
+    "experiments/sentinel-impact-0/CONTRACT.md",
+    "experiments/sentinel-impact-0/README.md",
+    "experiments/sentinel-impact-0/demo.py",
+    "experiments/sentinel-impact-0/evidence/adversarial-red.txt",
+    "experiments/sentinel-impact-0/evidence/binding-red.txt",
+    "experiments/sentinel-impact-0/evidence/demo-output.json",
+    "experiments/sentinel-impact-0/evidence/demo/brief.md",
+    "experiments/sentinel-impact-0/evidence/demo/derived/6b92e3e77956f8020482ca91889a24f3411c9a4854f2aaaac30ee504ef26ede4.utf8",
+    "experiments/sentinel-impact-0/evidence/demo/derived/773b7e340b77c3c54109da863b41163ac971f899da59d8efcbfba7ce8a9c7e88.utf8",
+    "experiments/sentinel-impact-0/evidence/demo/derived/a4848875691617b18fbf3034ec3e326259863744e3df1670177d6609e45c0b74.utf8",
+    "experiments/sentinel-impact-0/evidence/demo/derived/graph.json",
+    "experiments/sentinel-impact-0/evidence/demo/derived/report.json",
+    "experiments/sentinel-impact-0/evidence/demo/input/engine.py",
+    "experiments/sentinel-impact-0/evidence/demo/input/pipeline.py",
+    "experiments/sentinel-impact-0/evidence/demo/input/test_flow.py",
+    "experiments/sentinel-impact-0/evidence/demo/receipt.json",
+    "experiments/sentinel-impact-0/evidence/green.txt",
+    "experiments/sentinel-impact-0/evidence/initial-green.txt",
+    "experiments/sentinel-impact-0/evidence/output-red.txt",
+    "experiments/sentinel-impact-0/evidence/public-probe.json",
+    "experiments/sentinel-impact-0/evidence/python314.txt",
+    "experiments/sentinel-impact-0/evidence/red.txt",
+    "experiments/sentinel-impact-0/evidence/reproduction.json",
+    "experiments/sentinel-impact-0/impact.py",
+    "experiments/sentinel-impact-0/public_probe.py",
+    "experiments/sentinel-impact-0/test_impact.py"
+  ],
+  "fresh_public_probe_exact_match": true,
+  "fresh_synthetic_receipt_exact_match": true,
+  "laptop_verified": false,
+  "limits": "Static syntactic candidates, not runtime reachability or test coverage. Kit equivalence unverified.",
+  "models_or_api_used": false,
+  "project_sources_executed": false,
+  "public_probe_candidates": [
+    "native_smoke.main",
+    "native_smoke.<module>"
+  ],
+  "public_probe_unknown_references": 148,
+  "python312_result": "15/15 PASS; zero skipped; fresh committed worktree 7.628 seconds",
+  "python3148_result": "15/15 PASS; zero skipped; reused cached interpreter",
+  "red_contract_commit": "d6306f2738b57c9bfc6a8d241b3797814f0a5765",
+  "research_urls": [
+    "https://docs.python.org/3.12/library/ast.html",
+    "https://docs.python.org/3.12/library/modulefinder.html"
+  ],
+  "sha256": {
+    "CONTRACT.md": "e8a969663df59c91f0ef12a7b9717cfdb2a9ec74888901dad031271652826766",
+    "evidence/demo-output.json": "d43c972f7ca85ad16dab7b5ce66c1b3c7a272cb7536281172735296afc50dd3b",
+    "evidence/public-probe.json": "7cc67be3e111440337dae4da016b6d5431c3ba4cb312e9efad6f15017acb9801",
+    "impact.py": "8ea8ffd4d3f29ed7dbd34124beb3fbc69e78ad18b1068b55cb6eb7b39ceedf84",
+    "test_impact.py": "6c313310eecf49f421adc11931309885fa235720f2e552d3ce10f3f1fdd47640"
+  },
+  "stacked_base": "73239b3afb6838fc057da1e3904c5b3b4df9536b",
+  "synthetic_report_bytes": 1091,
+  "tested_commit": "8a9086d8c32594770c86f29df5eca9ce845625cb"
+}
