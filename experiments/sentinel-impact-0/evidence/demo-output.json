@@ -1,0 +1,66 @@
+{
+  "grep_command": "rg -n validate .",
+  "grep_output": "./engine.py:1:def validate(x):\n./pipeline.py:1:from engine import validate as check\n",
+  "question": "Which candidate callers and tests need review after changing engine.validate?",
+  "report": {
+    "analysis": "STATIC_PARTIAL",
+    "artifact": "graph.json",
+    "candidate_count": 2,
+    "candidates": [
+      {
+        "candidate_test": false,
+        "distance": 1,
+        "edge": 0,
+        "evidence": {
+          "end": 81,
+          "line": 3,
+          "path": "pipeline.py",
+          "quote": "check",
+          "source_sha256": "03369c46bab78e3561cdc4b3487fd4bfa449f8a76905874c3268ab65a97cfd67",
+          "start": 76
+        },
+        "symbol": "pipeline.run",
+        "via": "engine.validate"
+      },
+      {
+        "candidate_test": true,
+        "distance": 2,
+        "edge": 1,
+        "evidence": {
+          "end": 69,
+          "line": 3,
+          "path": "test_flow.py",
+          "quote": "launch",
+          "source_sha256": "4ec98c1e4bd077a00d08649cd188158c7354c7b017f9ac98007b1231aa661be9",
+          "start": 63
+        },
+        "symbol": "test_flow.test_good",
+        "via": "pipeline.run"
+      }
+    ],
+    "edge_count": 2,
+    "errors": [],
+    "gap_count": 0,
+    "gap_details_omitted": false,
+    "gaps": [],
+    "graph_sha256": "95ca778ff8e6c04ef3a379ed567cd9071d254226a168cd30e491a58f24290e0c",
+    "mechanical": "PASS",
+    "semantic": "REVIEW_REQUIRED",
+    "source_count": 3,
+    "status": "CANDIDATES",
+    "symbol": "engine.validate",
+    "trace_truncated": false,
+    "unknown_count": 0,
+    "warnings": [
+      "Syntactic candidates are not proven runtime calls or test coverage.",
+      "Dynamic dispatch, nested scopes, rebinding and missing sources can hide impact."
+    ]
+  },
+  "report_bytes": 1091,
+  "source_hashes": {
+    "engine.py": "202ba0e9d5fd300a5ba223ed7ce67c3e703ba81386a65777afbe73007132a40e",
+    "pipeline.py": "03369c46bab78e3561cdc4b3487fd4bfa449f8a76905874c3268ab65a97cfd67",
+    "test_flow.py": "4ec98c1e4bd077a00d08649cd188158c7354c7b017f9ac98007b1231aa661be9"
+  },
+  "sources_unchanged": true
+}

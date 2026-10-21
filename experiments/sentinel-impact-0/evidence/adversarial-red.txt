@@ -1,0 +1,33 @@
+test_alias_transitive_candidate_test_and_exact_edges (test_impact.ImpactTests.test_alias_transitive_candidate_test_and_exact_edges) ... ok
+test_caps_and_unknown_symbol_never_safe (test_impact.ImpactTests.test_caps_and_unknown_symbol_never_safe) ... ok
+test_conditional_wildcard_and_class_test_callers (test_impact.ImpactTests.test_conditional_wildcard_and_class_test_callers) ... FAIL
+test_parameter_assignment_and_duplicate_import_shadowing (test_impact.ImpactTests.test_parameter_assignment_and_duplicate_import_shadowing) ... ok
+test_rebound_export_and_method_dispatch_remain_unknown (test_impact.ImpactTests.test_rebound_export_and_method_dispatch_remain_unknown) ... FAIL
+test_relative_module_alias_and_cycle_cutoff (test_impact.ImpactTests.test_relative_module_alias_and_cycle_cutoff) ... ok
+test_same_name_modules_are_not_conflated (test_impact.ImpactTests.test_same_name_modules_are_not_conflated) ... ok
+test_source_snapshot_and_graph_mutations (test_impact.ImpactTests.test_source_snapshot_and_graph_mutations) ... ok
+test_symlink_fifo_parent_traversal_and_output_preservation (test_impact.ImpactTests.test_symlink_fifo_parent_traversal_and_output_preservation) ... ok
+test_syntax_dynamic_wildcard_and_nested_gaps (test_impact.ImpactTests.test_syntax_dynamic_wildcard_and_nested_gaps) ... ok
+test_target_source_is_never_executed (test_impact.ImpactTests.test_target_source_is_never_executed) ... ok
+test_unicode_crlf_offsets (test_impact.ImpactTests.test_unicode_crlf_offsets) ... ok
+
+======================================================================
+FAIL: test_conditional_wildcard_and_class_test_callers (test_impact.ImpactTests.test_conditional_wildcard_and_class_test_callers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 157, in test_conditional_wildcard_and_class_test_callers
+    self.assertFalse(any(e['caller']=='uncertain.run' for e in self.graph()['edges']))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_rebound_export_and_method_dispatch_remain_unknown (test_impact.ImpactTests.test_rebound_export_and_method_dispatch_remain_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 150, in test_rebound_export_and_method_dispatch_remain_unknown
+    self.assertFalse(any(e['callee']=='engine.validate' for e in self.graph()['edges']))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 12 tests in 4.936s
+
+FAILED (failures=2)

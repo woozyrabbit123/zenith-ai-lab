@@ -1,0 +1,67 @@
+{
+  "project_code_executed": false,
+  "public_commit": "e723864c0cdad9ea2c86ee505d28bcbe679472aa",
+  "public_repo": "woozyrabbit123/zenith-ai-lab",
+  "question": "Which scoped native-smoke entrypoints need review after operator_recipe.cell changes?",
+  "report": {
+    "analysis": "STATIC_PARTIAL",
+    "artifact": "graph.json",
+    "candidate_count": 2,
+    "candidates": [
+      {
+        "candidate_test": false,
+        "distance": 1,
+        "edge": 0,
+        "evidence": {
+          "end": 1964,
+          "line": 50,
+          "path": "native_smoke.py",
+          "quote": "cell",
+          "source_sha256": "110ba0c8ec6971e9c2c70f1b926b52d02b61d981bb5031689e9f590034dd3952",
+          "start": 1960
+        },
+        "symbol": "native_smoke.main",
+        "via": "operator_recipe.cell"
+      },
+      {
+        "candidate_test": false,
+        "distance": 2,
+        "edge": 1,
+        "evidence": {
+          "end": 3212,
+          "line": 72,
+          "path": "native_smoke.py",
+          "quote": "main",
+          "source_sha256": "110ba0c8ec6971e9c2c70f1b926b52d02b61d981bb5031689e9f590034dd3952",
+          "start": 3208
+        },
+        "symbol": "native_smoke.<module>",
+        "via": "native_smoke.main"
+      }
+    ],
+    "edge_count": 21,
+    "errors": [],
+    "gap_count": 0,
+    "gap_details_omitted": false,
+    "gaps": [],
+    "graph_sha256": "d837fd5abca7170fc048c7dd5e0ec10ad5463fe87032969113c8a38659c6b99a",
+    "mechanical": "PASS",
+    "semantic": "REVIEW_REQUIRED",
+    "source_count": 3,
+    "status": "CANDIDATES",
+    "symbol": "operator_recipe.cell",
+    "trace_truncated": false,
+    "unknown_count": 148,
+    "warnings": [
+      "Syntactic candidates are not proven runtime calls or test coverage.",
+      "Dynamic dispatch, nested scopes, rebinding and missing sources can hide impact."
+    ]
+  },
+  "scope": "Exactly three exported public files; no whole-repository or test-coverage claim.",
+  "source_hashes": {
+    "native_smoke.py": "110ba0c8ec6971e9c2c70f1b926b52d02b61d981bb5031689e9f590034dd3952",
+    "onecall.py": "c72a26b64e2cecdda4b434c57d73f2b65d748034bc0936e95e8446ce0ccf3d0d",
+    "operator_recipe.py": "b4da1ae1c42e8654a3384b2ea971cc1663b193446872a8f07a9d75b6a6213dc1"
+  },
+  "sources_unchanged": true
+}

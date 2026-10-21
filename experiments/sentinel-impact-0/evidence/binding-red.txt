@@ -1,0 +1,27 @@
+test_alias_transitive_candidate_test_and_exact_edges (test_impact.ImpactTests.test_alias_transitive_candidate_test_and_exact_edges) ... ok
+test_caps_and_unknown_symbol_never_safe (test_impact.ImpactTests.test_caps_and_unknown_symbol_never_safe) ... ok
+test_conditional_wildcard_and_class_test_callers (test_impact.ImpactTests.test_conditional_wildcard_and_class_test_callers) ... ok
+test_duplicate_module_and_parser_refusal_are_explicit (test_impact.ImpactTests.test_duplicate_module_and_parser_refusal_are_explicit) ... ok
+test_exception_and_pattern_binding_shadowing (test_impact.ImpactTests.test_exception_and_pattern_binding_shadowing) ... FAIL
+test_parameter_assignment_and_duplicate_import_shadowing (test_impact.ImpactTests.test_parameter_assignment_and_duplicate_import_shadowing) ... ok
+test_rebound_export_and_method_dispatch_remain_unknown (test_impact.ImpactTests.test_rebound_export_and_method_dispatch_remain_unknown) ... ok
+test_relative_module_alias_and_cycle_cutoff (test_impact.ImpactTests.test_relative_module_alias_and_cycle_cutoff) ... ok
+test_same_name_modules_are_not_conflated (test_impact.ImpactTests.test_same_name_modules_are_not_conflated) ... ok
+test_source_snapshot_and_graph_mutations (test_impact.ImpactTests.test_source_snapshot_and_graph_mutations) ... ok
+test_symlink_fifo_parent_traversal_and_output_preservation (test_impact.ImpactTests.test_symlink_fifo_parent_traversal_and_output_preservation) ... ok
+test_syntax_dynamic_wildcard_and_nested_gaps (test_impact.ImpactTests.test_syntax_dynamic_wildcard_and_nested_gaps) ... ok
+test_target_source_is_never_executed (test_impact.ImpactTests.test_target_source_is_never_executed) ... ok
+test_unicode_crlf_offsets (test_impact.ImpactTests.test_unicode_crlf_offsets) ... ok
+
+======================================================================
+FAIL: test_exception_and_pattern_binding_shadowing (test_impact.ImpactTests.test_exception_and_pattern_binding_shadowing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-impact-0/experiments/sentinel-impact-0/test_impact.py", line 164, in test_exception_and_pattern_binding_shadowing
+    self.assertFalse(any(e['caller'].startswith('binding.') for e in self.graph()['edges']))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 14 tests in 5.633s
+
+FAILED (failures=1)
