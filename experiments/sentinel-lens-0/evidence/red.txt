@@ -1,0 +1,296 @@
+test_added_source (test_lens.LensTests.test_added_source) ... FAIL
+test_bogus_quote_and_wrong_span (test_lens.LensTests.test_bogus_quote_and_wrong_span) ... FAIL
+test_chunk_path_escape (test_lens.LensTests.test_chunk_path_escape) ... FAIL
+test_empty_citations_and_unknown_chunk (test_lens.LensTests.test_empty_citations_and_unknown_chunk) ... FAIL
+test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) ... 
+  test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--file-bytes') ... FAIL
+  test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--total-bytes') ... FAIL
+  test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--files') ... FAIL
+  test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--entries') ... FAIL
+  test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--depth') ... FAIL
+test_invalid_empty_pdf_and_page_cap (test_lens.LensTests.test_invalid_empty_pdf_and_page_cap) ... FAIL
+test_mechanical_pass_can_be_semantically_contradicted (test_lens.LensTests.test_mechanical_pass_can_be_semantically_contradicted) ... FAIL
+test_original_bytes_multibyte_crlf_and_hostile_data (test_lens.LensTests.test_original_bytes_multibyte_crlf_and_hostile_data) ... FAIL
+test_output_escape_overlap_existing_and_root_symlink (test_lens.LensTests.test_output_escape_overlap_existing_and_root_symlink) ... FAIL
+test_real_poppler_explicit_pages (test_lens.LensTests.test_real_poppler_explicit_pages) ... FAIL
+test_snapshot_and_manifest_tampering (test_lens.LensTests.test_snapshot_and_manifest_tampering) ... FAIL
+test_source_mutation_and_deletion (test_lens.LensTests.test_source_mutation_and_deletion) ... FAIL
+test_symlink_fifo_unsupported_invalid_utf8 (test_lens.LensTests.test_symlink_fifo_unsupported_invalid_utf8) ... FAIL
+test_time_and_output_caps (test_lens.LensTests.test_time_and_output_caps) ... FAIL
+test_utf8_boundary_and_oversized_range (test_lens.LensTests.test_utf8_boundary_and_oversized_range) ... FAIL
+
+======================================================================
+FAIL: test_added_source (test_lens.LensTests.test_added_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 103, in test_added_source
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_bogus_quote_and_wrong_span (test_lens.LensTests.test_bogus_quote_and_wrong_span)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 108, in test_bogus_quote_and_wrong_span
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_chunk_path_escape (test_lens.LensTests.test_chunk_path_escape)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 157, in test_chunk_path_escape
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_empty_citations_and_unknown_chunk (test_lens.LensTests.test_empty_citations_and_unknown_chunk)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 214, in test_empty_citations_and_unknown_chunk
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--file-bytes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 177, in test_file_total_count_depth_and_entry_caps
+    self.assertEqual(self.snap(flag, value)['coverage'], 'INCOMPLETE')
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--total-bytes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 177, in test_file_total_count_depth_and_entry_caps
+    self.assertEqual(self.snap(flag, value)['coverage'], 'INCOMPLETE')
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--files')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 177, in test_file_total_count_depth_and_entry_caps
+    self.assertEqual(self.snap(flag, value)['coverage'], 'INCOMPLETE')
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--entries')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 177, in test_file_total_count_depth_and_entry_caps
+    self.assertEqual(self.snap(flag, value)['coverage'], 'INCOMPLETE')
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) (flag='--depth')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 177, in test_file_total_count_depth_and_entry_caps
+    self.assertEqual(self.snap(flag, value)['coverage'], 'INCOMPLETE')
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_invalid_empty_pdf_and_page_cap (test_lens.LensTests.test_invalid_empty_pdf_and_page_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 194, in test_invalid_empty_pdf_and_page_cap
+    r = self.snap('--pages', 1)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_mechanical_pass_can_be_semantically_contradicted (test_lens.LensTests.test_mechanical_pass_can_be_semantically_contradicted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 220, in test_mechanical_pass_can_be_semantically_contradicted
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_original_bytes_multibyte_crlf_and_hostile_data (test_lens.LensTests.test_original_bytes_multibyte_crlf_and_hostile_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 85, in test_original_bytes_multibyte_crlf_and_hostile_data
+    r = self.snap()
+        ^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_output_escape_overlap_existing_and_root_symlink (test_lens.LensTests.test_output_escape_overlap_existing_and_root_symlink)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 152, in test_output_escape_overlap_existing_and_root_symlink
+    code, _ = self.call('snapshot', '--root', root, '--out', out)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_real_poppler_explicit_pages (test_lens.LensTests.test_real_poppler_explicit_pages)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 201, in test_real_poppler_explicit_pages
+    self.assertEqual(self.snap()['coverage'], 'COMPLETE')
+                     ^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_snapshot_and_manifest_tampering (test_lens.LensTests.test_snapshot_and_manifest_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 125, in test_snapshot_and_manifest_tampering
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_source_mutation_and_deletion (test_lens.LensTests.test_source_mutation_and_deletion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 95, in test_source_mutation_and_deletion
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_symlink_fifo_unsupported_invalid_utf8 (test_lens.LensTests.test_symlink_fifo_unsupported_invalid_utf8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 142, in test_symlink_fifo_unsupported_invalid_utf8
+    r = self.snap()
+        ^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_time_and_output_caps (test_lens.LensTests.test_time_and_output_caps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 180, in test_time_and_output_caps
+    code, r = self.call('snapshot', '--root', self.root, '--out', self.out, '--seconds', '0.000001')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_utf8_boundary_and_oversized_range (test_lens.LensTests.test_utf8_boundary_and_oversized_range)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 117, in test_utf8_boundary_and_oversized_range
+    self.snap()
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 61, in snap
+    code, report = self.call('snapshot', '--root', self.root, '--out', self.out, *args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 57, in call
+    self.assertTrue(p.stdout, p.stderr.decode())
+AssertionError: b'' is not true : /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/sentinel-lens-0/experiments/sentinel-lens-0/lens.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.275s
+
+FAILED (failures=19)
