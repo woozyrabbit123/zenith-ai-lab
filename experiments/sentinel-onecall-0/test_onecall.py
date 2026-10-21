@@ -197,6 +197,29 @@ raise SystemExit(m.main(sys.argv[2:]))
         self.assertNotIn('untrusted dependency executed', p.stderr.decode())
         self.assertFalse(self.out.exists())
 
+    def test_long_unicode_paths_and_control_text_packet_pressure(self):
+        deep = self.root
+        for _ in range(4):
+            deep = deep / ('é' * 60)
+            deep.mkdir()
+        for i in range(12):
+            (deep / f'{i:02}.txt').write_text('é' * 51 + 'ship blue' + '\x01' * 280)
+        code, packet = self.call()
+        self.assertEqual(code, 0, packet)
+        self.assertTrue(packet['retrieval']['omitted_hits'])
+        self.assertTrue(any(q['path_shortened'] for q in packet['citations']))
+        self.assertGreater(len(packet['citations']), 0)
+        self.check_citations(packet)
+
+    def test_total_derived_output_and_lower_file_count_cap(self):
+        for i in range(8):
+            (self.root / f'{i:02}.txt').write_text('ship blue ' * 100)
+        code, packet = self.call(extra=('--output-bytes', 80000, '--files', 2))
+        self.assertEqual(code, 1, packet)
+        self.assertEqual(packet['coverage'], 'INCOMPLETE')
+        self.assertLessEqual(sum(p.stat().st_size for p in self.out.iterdir()), 80000)
+        self.check_citations(packet)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
