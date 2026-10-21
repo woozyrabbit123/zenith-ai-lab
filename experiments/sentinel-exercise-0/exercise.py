@@ -165,6 +165,9 @@ def worker(spec):
                     if len(cases)>spec['tests']:
                         result['gaps'].append('TEST_LIMIT');break
                 result['discovered_tests']=len(cases)
+                ids=[case.id() for case in cases]
+                if len(set(ids))!=len(ids):
+                    result['gaps'].append('DUPLICATE_TEST_ID')
                 if not cases:
                     result['gaps'].append('NO_TESTS')
                 elif not result['gaps']:
@@ -174,6 +177,8 @@ def worker(spec):
                     unittest.TestSuite(cases).run(recorder)
                     result['tests_run']=recorder.testsRun
                     result['test_result']='PASS' if recorder.wasSuccessful() else 'FAIL'
+                    if recorder.testsRun!=len(cases) or any(row['outcome']=='NOT_RUN' for row in rows.values()):
+                        result['gaps'].append('TEST_EXECUTION_INCOMPLETE')
             except BaseException:
                 result['gaps'].append('DISCOVERY_OR_RUN_EXCEPTION')
             finally:
@@ -241,9 +246,17 @@ def run(args,lib):
             response=out/'worker-response.bin';diagnostics=out/'worker-diagnostics.log'
             with open(response,'xb') as output,open(diagnostics,'xb') as errors:
                 try:
-                    p=subprocess.run([sys.executable,str(Path(__file__).resolve()),'_worker'],input=encode(spec),
-                                     cwd=root,env=env,stdout=output,stderr=errors,timeout=args.wall,preexec_fn=bound_child)
-                    if p.returncode:raise ValueError('worker failed')
+                    # Clean up the worker's process group even after a normal exit.
+                    # Detached descendants remain outside this cooperative boundary.
+                    with subprocess.Popen([sys.executable,str(Path(__file__).resolve()),'_worker'],
+                                          stdin=subprocess.PIPE,cwd=root,env=env,stdout=output,stderr=errors,
+                                          start_new_session=True,preexec_fn=bound_child) as child:
+                        try:
+                            child.communicate(encode(spec),timeout=args.wall)
+                        finally:
+                            try:os.killpg(child.pid,signal.SIGKILL)
+                            except ProcessLookupError:pass
+                        if child.returncode:raise ValueError('worker failed')
                     observed=json.loads(lib.read_at(out,response.name,args.log_bytes))
                 except (ValueError,OSError,subprocess.TimeoutExpired):
                     observed['gaps']=['WORKER_RESULT_OR_LIMIT_GAP']

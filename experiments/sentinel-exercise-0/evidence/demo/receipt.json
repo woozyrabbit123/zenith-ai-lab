@@ -1,0 +1,76 @@
+{
+  "after": {
+    "artifacts": {
+      "manifest": "manifest.json",
+      "result": "result.json"
+    },
+    "gaps": [],
+    "integrity": "PASS",
+    "integrity_errors": [],
+    "manifest_sha256": "b5880e1e151044f41409d55b95cc148b5c37b729ee118631ece952a332a2ac1d",
+    "not_observed_test_count": 1,
+    "not_observed_tests": [
+      "test_flow.Tests.test_green_decoy"
+    ],
+    "observed_test_count": 1,
+    "observed_tests": [
+      "test_flow.Tests.test_boundary"
+    ],
+    "scope": "Main-thread Python call events during unittest contexts; not line/branch/assertion coverage.",
+    "status": "OBSERVED",
+    "target": {
+      "code_sha256": "b4a94d52a9fe117871b1792a43e32a33801d0530f2a047fe586c1e9d7bf88238",
+      "first_line": 1,
+      "path": "engine.py",
+      "qualname": "validate",
+      "source_sha256": "202ba0e9d5fd300a5ba223ed7ce67c3e703ba81386a65777afbe73007132a40e"
+    },
+    "test_details_omitted": false,
+    "test_result": "PASS",
+    "tests_run": 2,
+    "unassigned_call_events": 0,
+    "warnings": [
+      "Setup/teardown calls count; discovery/class-hook calls are unassigned.",
+      "Other threads/processes and temporarily disabled profiling can hide calls. Trusted tests only; not an OS sandbox."
+    ]
+  },
+  "before": {
+    "artifacts": {
+      "manifest": "manifest.json",
+      "result": "result.json"
+    },
+    "gaps": [],
+    "integrity": "PASS",
+    "integrity_errors": [],
+    "manifest_sha256": "b3094969d8f0d8bc79659307204182f2d3225eb34166b219703f68e5ee8a3e14",
+    "not_observed_test_count": 1,
+    "not_observed_tests": [
+      "test_flow.Tests.test_green_decoy"
+    ],
+    "observed_test_count": 1,
+    "observed_tests": [
+      "test_flow.Tests.test_boundary"
+    ],
+    "scope": "Main-thread Python call events during unittest contexts; not line/branch/assertion coverage.",
+    "status": "OBSERVED_WITH_FAILURE",
+    "target": {
+      "code_sha256": "8ec5bff339e8d76468208bac14e6a340a93ec2e8b94e4d9280ed65ab94aa82fa",
+      "first_line": 1,
+      "path": "engine.py",
+      "qualname": "validate",
+      "source_sha256": "3ca78bbec571610067a2c30e277393fca94188ee47c29f010afeb95dc29450ca"
+    },
+    "test_details_omitted": false,
+    "test_result": "FAIL",
+    "tests_run": 2,
+    "unassigned_call_events": 0,
+    "warnings": [
+      "Setup/teardown calls count; discovery/class-hook calls are unassigned.",
+      "Other threads/processes and temporarily disabled profiling can hide calls. Trusted tests only; not an OS sandbox."
+    ]
+  },
+  "fix": "Demo author changed >= 0 to > 0 between runs; no autonomous repair.",
+  "kind": "synthetic boundary regression",
+  "meaning": "The real failing/passing test entered selected code; the green decoy did not. Assertion quality remains unproven.",
+  "python": "3.12.14"
+}

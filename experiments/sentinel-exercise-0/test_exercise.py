@@ -167,5 +167,29 @@ class ExerciseTests(unittest.TestCase):
         self.assertEqual(len(self.result()['tests']),3)
 
 
+    def test_input_byte_file_and_special_file_caps_prevent_execution(self):
+        marker=self.base/'SHOULD_NOT_RUN'
+        self.put('test_flow.py',f'from pathlib import Path\nPath({str(marker)!r}).touch()\n')
+        self.put('oversized.dat','x'*((1<<20)+1))
+        code,r=self.call();self.assertEqual(code,2,r);self.assertFalse(marker.exists())
+        (self.root/'oversized.dat').unlink()
+        os.mkfifo(self.root/'fifo')
+        code,r=self.call(out=self.base/'special');self.assertEqual(code,2,r);self.assertFalse(marker.exists())
+        (self.root/'fifo').unlink()
+        for n in range(130):self.put(f'extra{n}.dat','x')
+        code,r=self.call(out=self.base/'files');self.assertEqual(code,2,r);self.assertFalse(marker.exists())
+
+    def test_cpu_limit_never_returns_clean_observation(self):
+        self.put('test_flow.py','import unittest\nfrom engine import validate\nclass Tests(unittest.TestCase):\n    def test_spin(self):\n        validate(1)\n        while True:\n            pass\n')
+        code,r=self.call(extra=('--cpu',1,'--wall',4));self.assertEqual(code,2,r)
+        self.assertEqual(r['status'],'INCOMPLETE')
+
+    def test_generator_resumptions_are_call_events_not_invocations(self):
+        self.put('engine.py','def validate(x):\n    yield x\n    yield x+1\n')
+        self.put('test_flow.py','import unittest\nfrom engine import validate\nclass Tests(unittest.TestCase):\n    def test_generator(self):\n        self.assertEqual(list(validate(1)),[1,2])\n')
+        code,r=self.call();self.assertEqual(code,0,r)
+        self.assertEqual(self.result()['tests'][0]['call_events'],3)
+
+
 if __name__=='__main__':
     unittest.main(verbosity=2)

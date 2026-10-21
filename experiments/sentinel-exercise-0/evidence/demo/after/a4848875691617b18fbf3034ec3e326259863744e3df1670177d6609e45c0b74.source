@@ -1,0 +1,7 @@
+import unittest
+from engine import validate as check
+class Tests(unittest.TestCase):
+    def test_boundary(self):
+        self.assertFalse(check(0))
+    def test_green_decoy(self):
+        self.assertTrue(True)
