@@ -1,0 +1,35 @@
+test_added_source (test_lens.LensTests.test_added_source) ... ok
+test_bogus_quote_and_wrong_span (test_lens.LensTests.test_bogus_quote_and_wrong_span) ... ok
+test_chunk_path_escape (test_lens.LensTests.test_chunk_path_escape) ... ok
+test_empty_citations_and_unknown_chunk (test_lens.LensTests.test_empty_citations_and_unknown_chunk) ... ok
+test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) ... ok
+test_invalid_empty_pdf_and_page_cap (test_lens.LensTests.test_invalid_empty_pdf_and_page_cap) ... ok
+test_mechanical_pass_can_be_semantically_contradicted (test_lens.LensTests.test_mechanical_pass_can_be_semantically_contradicted) ... ok
+test_original_bytes_multibyte_crlf_and_hostile_data (test_lens.LensTests.test_original_bytes_multibyte_crlf_and_hostile_data) ... ok
+test_output_escape_overlap_existing_and_root_symlink (test_lens.LensTests.test_output_escape_overlap_existing_and_root_symlink) ... ok
+test_real_poppler_explicit_pages (test_lens.LensTests.test_real_poppler_explicit_pages) ... ok
+test_snapshot_and_manifest_tampering (test_lens.LensTests.test_snapshot_and_manifest_tampering) ... ok
+test_source_mutation_and_deletion (test_lens.LensTests.test_source_mutation_and_deletion) ... ok
+test_symlink_fifo_unsupported_invalid_utf8 (test_lens.LensTests.test_symlink_fifo_unsupported_invalid_utf8) ... ERROR
+test_time_and_output_caps (test_lens.LensTests.test_time_and_output_caps) ... ok
+test_utf8_boundary_and_oversized_range (test_lens.LensTests.test_utf8_boundary_and_oversized_range) ... ok
+
+======================================================================
+ERROR: test_symlink_fifo_unsupported_invalid_utf8 (test_lens.LensTests.test_symlink_fifo_unsupported_invalid_utf8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 144, in test_symlink_fifo_unsupported_invalid_utf8
+    self.assertEqual(self.verify()[1]['mechanical'], 'INCOMPLETE')
+                     ^^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 78, in verify
+    citations = [self.quote()]
+                 ^^^^^^^^^^^^
+  File "/workspace/sentinel-lens-0/experiments/sentinel-lens-0/test_lens.py", line 69, in quote
+    chunk = chunk or self.manifest['sources'][0]['chunks'][0]
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+----------------------------------------------------------------------
+Ran 15 tests in 2.362s
+
+FAILED (errors=1)

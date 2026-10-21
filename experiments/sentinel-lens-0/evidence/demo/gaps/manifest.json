@@ -1,0 +1,166 @@
+{
+  "coverage": "INCOMPLETE",
+  "format": "lens-0-v1",
+  "gaps": [
+    {
+      "path": "estimate.xlsx",
+      "reason": "unsupported source type"
+    },
+    {
+      "path": "scan.pdf",
+      "reason": "empty/scanned PDF page; OCR unavailable"
+    }
+  ],
+  "inventory": [
+    {
+      "kind": "file",
+      "path": "decision.md"
+    },
+    {
+      "kind": "file",
+      "path": "estimate.xlsx"
+    },
+    {
+      "kind": "file",
+      "path": "notes.txt"
+    },
+    {
+      "kind": "file",
+      "path": "readiness.pdf"
+    },
+    {
+      "kind": "file",
+      "path": "scan.pdf"
+    }
+  ],
+  "limits": {
+    "depth": 8,
+    "entries": 512,
+    "file_bytes": 4194304,
+    "files": 128,
+    "output_bytes": 16777216,
+    "pages": 32,
+    "seconds": 30.0,
+    "total_bytes": 16777216
+  },
+  "sources": [
+    {
+      "bytes": 109,
+      "chunks": [
+        {
+          "bytes": 109,
+          "extractor": {
+            "name": "identity-utf8",
+            "options": [],
+            "sha256": "9e15a918f7711f5b95aa4a1e86711703ab8c1d829a4f92b4cebaffe407c86bb7",
+            "version": "1"
+          },
+          "file": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb.0.utf8",
+          "id": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb:text",
+          "page": null,
+          "sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6"
+        }
+      ],
+      "id": "3952baeb62b89957bb189515b5b247bae0f4e569b5e4c13878d94c4c8647a4bb",
+      "path": "decision.md",
+      "sha256": "c727b33a7a5ccd916bcc11a3d44067bdfc7b70c57c695843342fbace351db5e6"
+    },
+    {
+      "bytes": 61,
+      "chunks": [],
+      "id": "c0f61b75bfac0a1872204f5052a6ef9417f1591bcf90284f5c1dfb30d965622e",
+      "path": "estimate.xlsx",
+      "sha256": "031e38ef062f148f7e823f486573f3b22c971d4a2e141d2d812355806404966c"
+    },
+    {
+      "bytes": 104,
+      "chunks": [
+        {
+          "bytes": 104,
+          "extractor": {
+            "name": "identity-utf8",
+            "options": [],
+            "sha256": "9e15a918f7711f5b95aa4a1e86711703ab8c1d829a4f92b4cebaffe407c86bb7",
+            "version": "1"
+          },
+          "file": "e39538e7f27a7bf579cd9b85a103c0f0b86b60b788534295538d0301a9c5dce6.0.utf8",
+          "id": "e39538e7f27a7bf579cd9b85a103c0f0b86b60b788534295538d0301a9c5dce6:text",
+          "page": null,
+          "sha256": "d024fc328f6690e1405e67d64e1e69ab98e5d6ae540279e3419ab2b0366af14f"
+        }
+      ],
+      "id": "e39538e7f27a7bf579cd9b85a103c0f0b86b60b788534295538d0301a9c5dce6",
+      "path": "notes.txt",
+      "sha256": "d024fc328f6690e1405e67d64e1e69ab98e5d6ae540279e3419ab2b0366af14f"
+    },
+    {
+      "bytes": 920,
+      "chunks": [
+        {
+          "bytes": 35,
+          "extractor": {
+            "name": "pdftotext",
+            "options": [
+              "-f",
+              "1",
+              "-l",
+              "1",
+              "-enc",
+              "UTF-8",
+              "-layout"
+            ],
+            "path": "/usr/bin/pdftotext",
+            "sha256": "7fe3559cac3ba61dd93650a1ba90499b9fc488184ef8d0f2f1305ddf52c0378b",
+            "version": "pdftotext version 25.03.0"
+          },
+          "file": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88.1.utf8",
+          "id": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88:page:1",
+          "page": 1,
+          "sha256": "8c4d500e7f7640b65de4e0be14af1e45bd0531320b39e79c4d0dc82af43c032d"
+        },
+        {
+          "bytes": 53,
+          "extractor": {
+            "name": "pdftotext",
+            "options": [
+              "-f",
+              "2",
+              "-l",
+              "2",
+              "-enc",
+              "UTF-8",
+              "-layout"
+            ],
+            "path": "/usr/bin/pdftotext",
+            "sha256": "7fe3559cac3ba61dd93650a1ba90499b9fc488184ef8d0f2f1305ddf52c0378b",
+            "version": "pdftotext version 25.03.0"
+          },
+          "file": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88.2.utf8",
+          "id": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88:page:2",
+          "page": 2,
+          "sha256": "0f8468b12b96177ee93f5b9011df914e0e47610597148ee2c3c4a8f3a765dc96"
+        }
+      ],
+      "id": "9952ebd886ef4a292a4296010c6f289885db3cab5f287c9b9481bb0e60796b88",
+      "path": "readiness.pdf",
+      "pdfinfo": {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override/pdfinfo",
+        "sha256": "fee70ade670fb025343aca2b5c3a2aacacb8ed9edce1b716b233b5de924b6bf5",
+        "version": "pdfinfo version 26.05.0"
+      },
+      "sha256": "5da792f0829d052302812612ca336fc4e932fc76b38d02d5f9874264f13132fa"
+    },
+    {
+      "bytes": 534,
+      "chunks": [],
+      "id": "900db3ec3bae665c4655646b584de4b76db637cb94a959a2ebb7a5fa5534aae6",
+      "path": "scan.pdf",
+      "pdfinfo": {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override/pdfinfo",
+        "sha256": "fee70ade670fb025343aca2b5c3a2aacacb8ed9edce1b716b233b5de924b6bf5",
+        "version": "pdfinfo version 26.05.0"
+      },
+      "sha256": "131d12857d044a56ac3330047e41cbceb717d7fadec0b87fdfbc78970f9c0593"
+    }
+  ]
+}

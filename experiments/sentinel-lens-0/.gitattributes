@@ -1,0 +1,4 @@
+*.pdf binary
+*.xlsx binary
+*.utf8 -text whitespace=cr-at-eol
+evidence/demo/input/notes.txt -text whitespace=cr-at-eol

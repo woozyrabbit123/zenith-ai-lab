@@ -1,0 +1,27 @@
+test_actual_permission_failure (test_lens.LensTests.test_actual_permission_failure) ... ok
+test_added_source (test_lens.LensTests.test_added_source) ... ok
+test_bogus_quote_and_wrong_span (test_lens.LensTests.test_bogus_quote_and_wrong_span) ... ok
+test_chunk_path_escape (test_lens.LensTests.test_chunk_path_escape) ... ok
+test_directory_entry_cap_is_global (test_lens.LensTests.test_directory_entry_cap_is_global) ... ok
+test_empty_citations_and_unknown_chunk (test_lens.LensTests.test_empty_citations_and_unknown_chunk) ... ok
+test_encrypted_pdf_is_gap_with_real_poppler (test_lens.LensTests.test_encrypted_pdf_is_gap_with_real_poppler) ... ok
+test_extractor_absence_timeout_and_output_limit (test_lens.LensTests.test_extractor_absence_timeout_and_output_limit) ... ok
+test_file_total_count_depth_and_entry_caps (test_lens.LensTests.test_file_total_count_depth_and_entry_caps) ... ok
+test_invalid_empty_pdf_and_page_cap (test_lens.LensTests.test_invalid_empty_pdf_and_page_cap) ... ok
+test_invalid_limits_and_oversized_citation_file (test_lens.LensTests.test_invalid_limits_and_oversized_citation_file) ... ok
+test_mechanical_pass_can_be_semantically_contradicted (test_lens.LensTests.test_mechanical_pass_can_be_semantically_contradicted) ... ok
+test_original_bytes_multibyte_crlf_and_hostile_data (test_lens.LensTests.test_original_bytes_multibyte_crlf_and_hostile_data) ... ok
+test_output_escape_overlap_existing_and_root_symlink (test_lens.LensTests.test_output_escape_overlap_existing_and_root_symlink) ... ok
+test_real_poppler_explicit_pages (test_lens.LensTests.test_real_poppler_explicit_pages) ... ok
+test_retained_extraction_symlink_rejected (test_lens.LensTests.test_retained_extraction_symlink_rejected) ... ok
+test_snapshot_and_manifest_tampering (test_lens.LensTests.test_snapshot_and_manifest_tampering) ... ok
+test_source_mutation_and_deletion (test_lens.LensTests.test_source_mutation_and_deletion) ... ok
+test_stable_ids_and_source_hashes (test_lens.LensTests.test_stable_ids_and_source_hashes) ... ok
+test_symlink_fifo_unsupported_invalid_utf8 (test_lens.LensTests.test_symlink_fifo_unsupported_invalid_utf8) ... ok
+test_time_and_output_caps (test_lens.LensTests.test_time_and_output_caps) ... ok
+test_utf8_boundary_and_oversized_range (test_lens.LensTests.test_utf8_boundary_and_oversized_range) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 3.513s
+
+OK
